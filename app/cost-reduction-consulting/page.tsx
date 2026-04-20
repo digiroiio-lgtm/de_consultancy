@@ -4,11 +4,12 @@ import { FaqSection } from "../components/faq-section";
 import { SchemaScript } from "../components/schema-script";
 import { FaqItem } from "../lib/content";
 import { breadcrumbSchema, faqSchema } from "../lib/schema";
+import { buildAlternates, localeRoutes } from "../lib/i18n";
 
 export const metadata: Metadata = {
   title: "Cost Reduction Consulting",
   description: "Cost reduction consulting for manufacturers to improve EBITDA, pricing discipline, and cash flow performance.",
-  alternates: { canonical: "/cost-reduction-consulting" },
+  alternates: buildAlternates(localeRoutes.costReduction),
 };
 
 const faqs: FaqItem[] = [

@@ -1,25 +1,68 @@
 import Link from "next/link";
 import { company } from "../lib/content";
+import type { Locale } from "../lib/i18n";
 
-const footerLinks = {
-  "What We Do": [
-    { label: "Management Consulting", href: "/management-consulting" },
-    { label: "Export Consulting", href: "/export-consulting" },
-    { label: "Industries", href: "/industries" },
-  ],
-  "Company": [
-    { label: "About", href: "/about" },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Contact", href: "/contact" },
-  ],
-  "Legal": [
-    { label: "Privacy Policy", href: "/legal/privacy-policy" },
-    { label: "Terms & Conditions", href: "/legal/terms-and-conditions" },
-    { label: "Cookie Policy", href: "/legal/cookie-policy" },
-  ],
+type FooterLinks = Record<string, { label: string; href: string }[]>;
+
+const footerLinksByLocale: Record<Locale, FooterLinks> = {
+  en: {
+    "What We Do": [
+      { label: "Management Consulting", href: "/management-consulting" },
+      { label: "Export Consulting",     href: "/export-consulting" },
+      { label: "Industries",            href: "/industries" },
+    ],
+    "Company": [
+      { label: "About",        href: "/about" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Contact",      href: "/contact" },
+    ],
+    "Legal": [
+      { label: "Privacy Policy",      href: "/legal/privacy-policy" },
+      { label: "Terms & Conditions",  href: "/legal/terms-and-conditions" },
+      { label: "Cookie Policy",       href: "/legal/cookie-policy" },
+    ],
+  },
+  tr: {
+    "Ne Yapıyoruz": [
+      { label: "Yönetim Danışmanlığı", href: "/tr/yonetim-danismanligi" },
+      { label: "İhracat Danışmanlığı", href: "/tr/ihracat-danismanligi" },
+      { label: "Maliyet Optimizasyonu", href: "/tr/maliyet-optimizasyonu" },
+    ],
+    "Şirket": [
+      { label: "Hakkımızda", href: "/tr/hakkimizda" },
+      { label: "İletişim",   href: "/tr/iletisim" },
+    ],
+    "Hukuki": [
+      { label: "Gizlilik Politikası", href: "/legal/privacy-policy" },
+      { label: "Kullanım Şartları",   href: "/legal/terms-and-conditions" },
+      { label: "Çerez Politikası",    href: "/legal/cookie-policy" },
+    ],
+  },
 };
 
-export function SiteFooter() {
+const footerMeta: Record<Locale, { tagline: string; copyright: string; privacyLabel: string; termsLabel: string; cookiesLabel: string }> = {
+  en: {
+    tagline:      "Enterprise management and export consulting for manufacturers who demand measurable results.",
+    copyright:    "All rights reserved.",
+    privacyLabel: "Privacy",
+    termsLabel:   "Terms",
+    cookiesLabel: "Cookies",
+  },
+  tr: {
+    tagline:      "Ölçülebilir sonuç isteyen üreticiler için kurumsal yönetim ve ihracat danışmanlığı.",
+    copyright:    "Tüm hakları saklıdır.",
+    privacyLabel: "Gizlilik",
+    termsLabel:   "Şartlar",
+    cookiesLabel: "Çerezler",
+  },
+};
+
+export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
+  const footerLinks = footerLinksByLocale[locale];
+  const meta = footerMeta[locale];
+  const homeHref = locale === "tr" ? "/tr" : "/";
+  const legalBase = locale === "tr" ? "/tr" : "";
+
   return (
     <footer
       style={{
@@ -43,7 +86,7 @@ export function SiteFooter() {
           {/* Brand column */}
           <div>
             <Link
-              href="/"
+              href={homeHref}
               style={{
                 fontSize: 22,
                 fontWeight: 800,
@@ -60,7 +103,7 @@ export function SiteFooter() {
               Advisera Global
             </Link>
             <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.7, maxWidth: 240 }}>
-              Enterprise management and export consulting for manufacturers who demand measurable results.
+              {meta.tagline}
             </p>
             <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 6 }}>
               <a
@@ -152,17 +195,17 @@ export function SiteFooter() {
           }}
         >
           <p style={{ fontSize: 13, color: "var(--muted)", opacity: 0.6 }}>
-            © {new Date().getFullYear()} Advisera Global. All rights reserved.
+            © {new Date().getFullYear()} Advisera Global. {meta.copyright}
           </p>
           <div style={{ display: "flex", gap: 24 }}>
-            <Link href="/legal/privacy-policy" style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", opacity: 0.6 }}>
-              Privacy
+            <Link href={`${legalBase}/legal/privacy-policy`} style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", opacity: 0.6 }}>
+              {meta.privacyLabel}
             </Link>
-            <Link href="/legal/terms-and-conditions" style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", opacity: 0.6 }}>
-              Terms
+            <Link href={`${legalBase}/legal/terms-and-conditions`} style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", opacity: 0.6 }}>
+              {meta.termsLabel}
             </Link>
-            <Link href="/legal/cookie-policy" style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", opacity: 0.6 }}>
-              Cookies
+            <Link href={`${legalBase}/legal/cookie-policy`} style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", opacity: 0.6 }}>
+              {meta.cookiesLabel}
             </Link>
           </div>
         </div>

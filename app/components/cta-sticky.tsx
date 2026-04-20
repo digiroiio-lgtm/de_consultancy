@@ -2,9 +2,16 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import type { Locale } from "../lib/i18n";
 
-export function StickyCta() {
+const ctaCopy: Record<Locale, { href: string; desktopLabel: string; mobileLabel: string }> = {
+  en: { href: "/contact",     desktopLabel: "Book Strategy Call",          mobileLabel: "Book Strategy Call →" },
+  tr: { href: "/tr/iletisim", desktopLabel: "Strateji Görüşmesi Ayırtın",  mobileLabel: "Strateji Görüşmesi Ayırtın →" },
+};
+
+export function StickyCta({ locale = "en" }: { locale?: Locale }) {
   const [visible, setVisible] = useState(false);
+  const cta = ctaCopy[locale];
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 200);
@@ -29,11 +36,11 @@ export function StickyCta() {
         }}
       >
         <Link
-          href="/contact"
+          href={cta.href}
           className="btn-primary glow-purple"
           style={{ fontSize: 13, padding: "12px 22px", borderRadius: 8 }}
         >
-          Book Strategy Call
+          {cta.desktopLabel}
         </Link>
       </div>
 
@@ -59,7 +66,7 @@ export function StickyCta() {
         }}
       >
         <Link
-          href="/contact"
+          href={cta.href}
           className="btn-primary"
           tabIndex={visible ? 0 : -1}
           style={{
@@ -70,7 +77,7 @@ export function StickyCta() {
             borderRadius: 8,
           }}
         >
-          Book Strategy Call →
+          {cta.mobileLabel}
         </Link>
       </div>
     </>

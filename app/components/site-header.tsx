@@ -3,17 +3,33 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "./theme-toggle";
+import { LanguageSwitcher } from "./language-switcher";
+import type { Locale } from "../lib/i18n";
 
-const links = [
-  { href: "/management-consulting", label: "What We Do" },
-  { href: "/case-studies", label: "What We Think" },
-  { href: "/about", label: "Who We Are" },
-];
+const navLinks: Record<Locale, { href: string; label: string }[]> = {
+  en: [
+    { href: "/management-consulting", label: "What We Do" },
+    { href: "/case-studies", label: "What We Think" },
+    { href: "/about", label: "Who We Are" },
+  ],
+  tr: [
+    { href: "/tr/yonetim-danismanligi", label: "Ne Yapıyoruz" },
+    { href: "/tr/ihracat-danismanligi", label: "İhracat" },
+    { href: "/tr/hakkimizda", label: "Hakkımızda" },
+  ],
+};
 
-export function SiteHeader() {
+const ctaLink: Record<Locale, { href: string; label: string }> = {
+  en: { href: "/contact",    label: "Book Strategy Call" },
+  tr: { href: "/tr/iletisim", label: "Görüşme Ayırtın" },
+};
+
+export function SiteHeader({ locale = "en" }: { locale?: Locale }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const links = navLinks[locale];
+  const cta = ctaLink[locale];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -44,7 +60,7 @@ export function SiteHeader() {
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
             {/* Logo */}
             <Link
-              href="/"
+              href={locale === "tr" ? "/tr" : "/"}
               style={{
                 fontSize: 20,
                 fontWeight: 800,
@@ -84,18 +100,20 @@ export function SiteHeader() {
 
             {/* Desktop right */}
             <div style={{ alignItems: "center", gap: 12 }} className="hidden md:flex">
+              <LanguageSwitcher locale={locale} />
               <ThemeToggle />
               <Link
-                href="/contact"
+                href={cta.href}
                 className="btn-primary"
                 style={{ padding: "10px 22px", fontSize: 13 }}
               >
-                Book Strategy Call
+                {cta.label}
               </Link>
             </div>
 
             {/* Mobile right */}
             <div style={{ alignItems: "center", gap: 10 }} className="flex md:hidden">
+              <LanguageSwitcher locale={locale} />
               <ThemeToggle />
               {/* Hamburger */}
               <button
@@ -192,12 +210,12 @@ export function SiteHeader() {
           </Link>
         ))}
         <Link
-          href="/contact"
+          href={cta.href}
           onClick={() => setMenuOpen(false)}
           className="btn-primary"
           style={{ alignSelf: "flex-start", marginTop: 16 }}
         >
-          Book Strategy Call
+          {cta.label}
         </Link>
       </div>
     </>

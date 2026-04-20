@@ -10,11 +10,13 @@ import { ExportScoreTool } from "./components/export-score-tool";
 import { FaqSection } from "./components/faq-section";
 import { caseStudies, company, coreFaqs } from "./lib/content";
 import { breadcrumbSchema, faqSchema } from "./lib/schema";
+import { buildAlternates, localeRoutes } from "./lib/i18n";
 
 export const metadata: Metadata = {
   title: "Scale Profitability. Expand Globally.",
   description:
     "Enterprise management consulting and export consulting for manufacturers. Book a strategy call to improve margins and scale international growth.",
+  alternates: buildAlternates(localeRoutes.home),
 };
 
 export default function Home() {

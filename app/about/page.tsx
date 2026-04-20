@@ -3,11 +3,12 @@ import { FaqSection } from "../components/faq-section";
 import { SchemaScript } from "../components/schema-script";
 import { FaqItem } from "../lib/content";
 import { breadcrumbSchema, faqSchema } from "../lib/schema";
+import { buildAlternates, localeRoutes } from "../lib/i18n";
 
 export const metadata: Metadata = {
   title: "About Advisera Global",
   description: "Execution-driven consulting partner for manufacturers seeking measurable profitability and export growth.",
-  alternates: { canonical: "/about" },
+  alternates: buildAlternates(localeRoutes.about),
 };
 
 const faqs: FaqItem[] = [

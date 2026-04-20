@@ -4,12 +4,13 @@ import { FaqSection } from "../components/faq-section";
 import { SchemaScript } from "../components/schema-script";
 import { FaqItem } from "../lib/content";
 import { breadcrumbSchema, faqSchema } from "../lib/schema";
+import { buildAlternates, localeRoutes } from "../lib/i18n";
 
 export const metadata: Metadata = {
   title: "Management Consulting for Manufacturers",
   description:
     "Cost reduction consulting, procurement optimization, pricing strategy, and cash flow systems for manufacturing profitability.",
-  alternates: { canonical: "/management-consulting" },
+  alternates: buildAlternates(localeRoutes.managementConsulting),
 };
 
 const faqs: FaqItem[] = [

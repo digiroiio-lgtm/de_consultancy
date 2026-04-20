@@ -1,25 +1,27 @@
 import type { Metadata } from "next";
-import { ContactMultistepForm } from "../components/contact-multistep-form";
-import { FaqSection } from "../components/faq-section";
-import { SchemaScript } from "../components/schema-script";
-import { company, FaqItem } from "../lib/content";
-import { breadcrumbSchema, faqSchema } from "../lib/schema";
-import { buildAlternates, localeRoutes } from "../lib/i18n";
+import { ContactMultistepForm } from "../../components/contact-multistep-form";
+import { FaqSection } from "../../components/faq-section";
+import { SchemaScript } from "../../components/schema-script";
+import { company } from "../../lib/content";
+import { breadcrumbSchema, faqSchema } from "../../lib/schema";
+import { buildAlternatesTr, localeRoutes } from "../../lib/i18n";
+import type { FaqItem } from "../../lib/content";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Book your strategy call via form or email. Reach Advisera Global at info@adviseraglobal.com.",
-  alternates: buildAlternates(localeRoutes.contact),
+  title: "İletişim",
+  description:
+    "Strateji görüşmesi ayırtın. Form veya e-posta yoluyla Advisera Global ile iletişime geçin: info@adviseraglobal.com",
+  alternates: buildAlternatesTr(localeRoutes.contact),
 };
 
 const faqs: FaqItem[] = [
   {
-    question: "What happens after form submission?",
-    answer: "We review your goals and schedule a focused strategy call with a 90-day action direction.",
+    question: "Form gönderdikten sonra ne olur?",
+    answer: "Hedeflerinizi inceleyip 90 günlük aksiyon yönlendirmesiyle odaklı bir strateji görüşmesi planlıyoruz.",
   },
 ];
 
-export default function ContactPage() {
+export default function TrContactPage() {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
 
   return (
@@ -27,8 +29,8 @@ export default function ContactPage() {
       <SchemaScript
         data={[
           breadcrumbSchema([
-            { name: "Home", path: "/" },
-            { name: "Contact", path: "/contact" },
+            { name: "Ana Sayfa", path: "/tr" },
+            { name: "İletişim", path: "/tr/iletisim" },
           ]),
           faqSchema(faqs),
         ]}
@@ -43,12 +45,12 @@ export default function ContactPage() {
         }}
         className="max-w-site"
       >
-        <p className="label" style={{ marginBottom: 20 }}>Get In Touch</p>
+        <p className="label" style={{ marginBottom: 20 }}>İletişime Geçin</p>
         <h1 className="h1" style={{ color: "var(--fg)", maxWidth: 640, marginBottom: 24 }}>
-          Book a Strategy Call
+          Strateji Görüşmesi Ayırtın
         </h1>
         <p className="body-lg" style={{ color: "var(--muted)", maxWidth: 480 }}>
-          Tell us your goal and we will return with a focused 90-day action plan — no generic slides.
+          Hedefinizi paylaşın, 90 günlük odaklı bir aksiyon planıyla geri dönelim — genel slaytlar değil.
         </p>
       </section>
 
@@ -102,7 +104,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <div>
-                <p style={{ fontSize: 15, fontWeight: 700, color: "var(--fg)", marginBottom: 4 }}>Email</p>
+                <p style={{ fontSize: 15, fontWeight: 700, color: "var(--fg)", marginBottom: 4 }}>E-posta</p>
                 <p style={{ fontSize: 13, color: "var(--fg-weaker)" }}>{company.email}</p>
               </div>
             </a>
@@ -133,9 +135,9 @@ export default function ContactPage() {
                 }}
               >
                 <p style={{ fontSize: 14, color: "var(--fg-dim)", lineHeight: 1.65 }}>
-                  Calendly embed is not configured. Set{" "}
+                  Calendly entegrasyonu yapılandırılmamış.{" "}
                   <code style={{ color: "#a100ff", fontSize: 12 }}>NEXT_PUBLIC_CALENDLY_URL</code>{" "}
-                  to enable inline scheduling.
+                  değişkenini ayarlayın.
                 </p>
               </div>
             )}
