@@ -26,14 +26,14 @@ export function IndustryTags() {
       style={{
         background: "#050505",
         paddingBlock: "clamp(64px,8vw,120px)",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid var(--border)",
       }}
     >
       <div className="max-w-site" style={{ paddingInline: "clamp(24px,5vw,80px)" }}>
         <p className="label" style={{ marginBottom: 16 }}>Industries &amp; Capabilities</p>
         <h2
           className="h2"
-          style={{ color: "#fff", marginBottom: "clamp(32px,4vw,56px)", maxWidth: 480 }}
+          style={{ color: "var(--fg)", marginBottom: "clamp(32px,4vw,56px)", maxWidth: 480 }}
         >
           We Work Across
         </h2>

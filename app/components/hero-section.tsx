@@ -95,7 +95,7 @@ export function HeroSection() {
         display: "flex",
         alignItems: "center",
         overflow: "hidden",
-        background: "#000",
+        background: "var(--bg)",
       }}
     >
       {/* Animated canvas background */}
@@ -157,13 +157,13 @@ export function HeroSection() {
           </p>
           <h1
             className="h1"
-            style={{ color: "#fff" }}
+            style={{ color: "var(--fg)" }}
           >
             Scale{" "}
             <span className="gradient-text">Profitability.</span>
             <br />
             Expand{" "}
-            <span style={{ color: "rgba(255,255,255,0.55)" }}>Globally.</span>
+            <span style={{ color: "var(--muted)" }}>Globally.</span>
           </h1>
 
           {/* Stats row */}
@@ -192,7 +192,7 @@ export function HeroSection() {
                 >
                   {s.value}
                 </p>
-                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", marginTop: 4 }}>{s.label}</p>
+                <p style={{ fontSize: 13, color: "var(--fg-weaker)", marginTop: 4 }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -202,13 +202,13 @@ export function HeroSection() {
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <p
             className="body-lg"
-            style={{ color: "rgba(255,255,255,0.7)", maxWidth: 440 }}
+            style={{ color: "var(--fg-dimmer)", maxWidth: 440 }}
           >
             We don&apos;t just deliver strategy decks. We install execution systems that drive measurable EBITDA growth and build scalable global export operations.
           </p>
           <p
             className="body-md"
-            style={{ color: "rgba(255,255,255,0.5)", maxWidth: 400 }}
+            style={{ color: "var(--fg-weaker)", maxWidth: 400 }}
           >
             Manufacturers in packaging, food production, and industrial sectors trust Advisera Global to turn operational complexity into competitive advantage.
           </p>
@@ -237,7 +237,7 @@ export function HeroSection() {
           opacity: 0.4,
         }}
       >
-        <span style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#fff" }}>
+        <span style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--fg)" }}>
           Scroll
         </span>
         <div

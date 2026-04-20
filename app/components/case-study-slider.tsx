@@ -21,7 +21,7 @@ export function CaseStudySlider({ studies }: { studies: CaseStudy[] }) {
   return (
     <section
       style={{
-        background: "#000",
+        background: "var(--bg)",
         paddingBlock: "clamp(80px,10vw,160px)",
       }}
     >
@@ -39,7 +39,7 @@ export function CaseStudySlider({ studies }: { studies: CaseStudy[] }) {
         >
           <div>
             <p className="label">Proven Results</p>
-            <h2 className="h2" style={{ color: "#fff", marginTop: 16 }}>
+            <h2 className="h2" style={{ color: "var(--fg)", marginTop: 16 }}>
               Case Studies
             </h2>
           </div>
@@ -55,9 +55,9 @@ export function CaseStudySlider({ studies }: { studies: CaseStudy[] }) {
                   width: 48,
                   height: 48,
                   borderRadius: "50%",
-                  border: "1px solid rgba(255,255,255,0.2)",
+                  border: "1px solid var(--border)",
                   background: "transparent",
-                  color: "#fff",
+                  color: "var(--fg)",
                   cursor: "pointer",
                   fontSize: 18,
                   display: "flex",
@@ -70,7 +70,7 @@ export function CaseStudySlider({ studies }: { studies: CaseStudy[] }) {
                   (e.currentTarget as HTMLElement).style.background = "rgba(161,0,255,0.1)";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.2)";
+                  (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
                   (e.currentTarget as HTMLElement).style.background = "transparent";
                 }}
               >
@@ -133,7 +133,7 @@ export function CaseStudySlider({ studies }: { studies: CaseStudy[] }) {
                 style={{
                   fontSize: "clamp(18px,2vw,24px)",
                   fontWeight: 700,
-                  color: "#fff",
+                  color: "var(--fg)",
                   lineHeight: 1.25,
                   letterSpacing: "-0.01em",
                   margin: 0,
@@ -142,7 +142,7 @@ export function CaseStudySlider({ studies }: { studies: CaseStudy[] }) {
                 {study.title}
               </h3>
 
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65 }}>
+              <p style={{ fontSize: 14, color: "var(--fg-weaker)", lineHeight: 1.65 }}>
                 {study.problem}
               </p>
 
@@ -157,7 +157,7 @@ export function CaseStudySlider({ studies }: { studies: CaseStudy[] }) {
                       gap: 10,
                       fontSize: 13,
                       fontWeight: 600,
-                      color: "#fff",
+                      color: "var(--fg)",
                     }}
                   >
                     <span style={{ color: "#a100ff", fontSize: 16 }}>↑</span>

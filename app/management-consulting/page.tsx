@@ -55,7 +55,7 @@ export default function ManagementConsultingPage() {
         style={{
           paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,160px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          borderBottom: "1px solid var(--border)",
           position: "relative",
           overflow: "hidden",
         }}
@@ -77,10 +77,10 @@ export default function ManagementConsultingPage() {
           }}
         />
         <p className="label" style={{ marginBottom: 20 }}>Management Consulting</p>
-        <h1 className="h1" style={{ color: "#fff", maxWidth: 720, marginBottom: 24 }}>
+        <h1 className="h1" style={{ color: "var(--fg)", maxWidth: 720, marginBottom: 24 }}>
           Financial + Operational Excellence
         </h1>
-        <p className="body-lg" style={{ color: "rgba(255,255,255,0.6)", maxWidth: 560, marginBottom: 40 }}>
+        <p className="body-lg" style={{ color: "var(--muted)", maxWidth: 560, marginBottom: 40 }}>
           We improve margin, control, and execution speed for manufacturing leadership teams — delivering results in weeks, not months.
         </p>
         <Link href="/contact" className="btn-primary">
@@ -89,32 +89,32 @@ export default function ManagementConsultingPage() {
       </section>
 
       {/* Capabilities */}
-      <section style={{ paddingBlock: "clamp(64px,8vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+      <section style={{ paddingBlock: "clamp(64px,8vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid var(--border)" }}
         className="max-w-site">
         <p className="label" style={{ marginBottom: 16 }}>Capabilities</p>
-        <h2 className="h2" style={{ color: "#fff", marginBottom: "clamp(32px,4vw,56px)" }}>What We Do</h2>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(32px,4vw,56px)" }}>What We Do</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
           {capabilities.map(([title, copy]) => (
             <article key={title} className="card" style={{ padding: "28px 28px" }}>
-              <h3 style={{ fontSize: 17, fontWeight: 700, color: "#fff", marginBottom: 10, letterSpacing: "-0.01em" }}>{title}</h3>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65 }}>{copy}</p>
+              <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--fg)", marginBottom: 10, letterSpacing: "-0.01em" }}>{title}</h3>
+              <p style={{ fontSize: 14, color: "var(--fg-weaker)", lineHeight: 1.65 }}>{copy}</p>
             </article>
           ))}
         </div>
       </section>
 
       {/* Before / After */}
-      <section style={{ paddingBlock: "clamp(64px,8vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#050505" }}
+      <section style={{ paddingBlock: "clamp(64px,8vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid var(--border)", background: "#050505" }}
         className="max-w-site">
         <p className="label" style={{ marginBottom: 16 }}>Proven Impact</p>
-        <h2 className="h2" style={{ color: "#fff", marginBottom: "clamp(32px,4vw,56px)" }}>Before / After Metrics</h2>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(32px,4vw,56px)" }}>Before / After Metrics</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 20 }}>
           {metrics.map((m) => (
             <article key={m.kpi} className="card" style={{ padding: "28px 28px" }}>
-              <h3 style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>
+              <h3 style={{ fontSize: 13, fontWeight: 700, color: "var(--fg-dim)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>
                 {m.kpi}
               </h3>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", marginBottom: 8 }}>{m.before}</p>
+              <p style={{ fontSize: 14, color: "var(--fg-weaker)", marginBottom: 8 }}>{m.before}</p>
               <p style={{ fontSize: 22, fontWeight: 800, color: "#a100ff", letterSpacing: "-0.02em" }}>
                 {m.arrow ? "↑ " : "↓ "}{m.after}
               </p>
@@ -130,13 +130,13 @@ export default function ManagementConsultingPage() {
         style={{
           paddingBlock: "clamp(64px,8vw,120px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          background: "#000",
-          borderTop: "1px solid rgba(255,255,255,0.06)",
+          background: "var(--bg)",
+          borderTop: "1px solid var(--border)",
         }}
         className="max-w-site"
       >
-        <h2 className="h2" style={{ color: "#fff", marginBottom: 16 }}>Need a free cost analysis?</h2>
-        <p style={{ fontSize: 17, color: "rgba(255,255,255,0.55)", marginBottom: 32, maxWidth: 440 }}>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 16 }}>Need a free cost analysis?</h2>
+        <p style={{ fontSize: 17, color: "var(--muted)", marginBottom: 32, maxWidth: 440 }}>
           Share your baseline data and we will map your top 3 margin improvement opportunities.
         </p>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>

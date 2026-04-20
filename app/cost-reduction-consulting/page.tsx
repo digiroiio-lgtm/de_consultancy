@@ -48,15 +48,15 @@ export default function CostReductionPage() {
         style={{
           paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,120px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          borderBottom: "1px solid var(--border)",
         }}
         className="max-w-site"
       >
         <p className="label" style={{ marginBottom: 20 }}>Cost Reduction</p>
-        <h1 className="h1" style={{ color: "#fff", maxWidth: 680, marginBottom: 24 }}>
+        <h1 className="h1" style={{ color: "var(--fg)", maxWidth: 680, marginBottom: 24 }}>
           Cost Reduction Consulting for Manufacturers
         </h1>
-        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", maxWidth: 520, marginBottom: 40 }}>
+        <p className="body-lg" style={{ color: "var(--muted)", maxWidth: 520, marginBottom: 40 }}>
           Reduce operational costs without sacrificing quality, service levels, or growth capacity.
         </p>
         <Link href="/contact" className="btn-primary">Free Cost Analysis →</Link>
@@ -66,11 +66,11 @@ export default function CostReductionPage() {
         style={{
           paddingBlock: "clamp(64px,8vw,120px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid var(--border)",
         }}
         className="max-w-site"
       >
-        <h2 className="h2" style={{ color: "#fff", marginBottom: 32 }}>What We Optimize</h2>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 32 }}>What We Optimize</h2>
         <div style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 640 }}>
           {optimizations.map((item) => (
             <div
@@ -79,7 +79,7 @@ export default function CostReductionPage() {
               style={{ padding: "20px 24px", display: "flex", alignItems: "center", gap: 16 }}
             >
               <span style={{ color: "#a100ff", fontSize: 18, flexShrink: 0 }}>↑</span>
-              <p style={{ fontSize: 16, color: "rgba(255,255,255,0.75)" }}>{item}</p>
+              <p style={{ fontSize: 16, color: "var(--fg-dimmer)" }}>{item}</p>
             </div>
           ))}
         </div>

@@ -47,14 +47,14 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         style={{
           paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,120px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          borderBottom: "1px solid var(--border)",
         }}
         className="max-w-site"
       >
         <p className="label" style={{ marginBottom: 20 }}>
           {study.industry} · {study.service}
         </p>
-        <h1 className="h1" style={{ color: "#fff", maxWidth: 720, marginBottom: 24 }}>
+        <h1 className="h1" style={{ color: "var(--fg)", maxWidth: 720, marginBottom: 24 }}>
           {study.title}
         </h1>
 
@@ -65,7 +65,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
               <p style={{ fontSize: "clamp(20px,3vw,32px)", fontWeight: 800, color: "#a100ff", letterSpacing: "-0.02em" }}>
                 ↑ {m.split(" ").slice(0, 1).join("")}
               </p>
-              <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>
+              <p style={{ fontSize: 13, color: "var(--fg-dim)", marginTop: 4 }}>
                 {m.split(" ").slice(1).join(" ")}
               </p>
             </div>
@@ -78,7 +78,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         style={{
           paddingBlock: "clamp(64px,8vw,120px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid var(--border)",
         }}
         className="max-w-site"
       >
@@ -101,7 +101,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
               >
                 {item.label}
               </h2>
-              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.65 }}>{item.content}</p>
+              <p style={{ fontSize: 15, color: "var(--fg-dimmer)", lineHeight: 1.65 }}>{item.content}</p>
             </article>
           ))}
         </div>
@@ -115,7 +115,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         }}
         className="max-w-site"
       >
-        <h2 className="h2" style={{ color: "#fff", marginBottom: 24 }}>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 24 }}>
           Get Similar Results
         </h2>
         <Link href="/contact" className="btn-primary">

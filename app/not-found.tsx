@@ -17,7 +17,7 @@ export default function NotFound() {
         justifyContent: "center",
         padding: "clamp(40px,8vw,120px) clamp(24px,5vw,80px)",
         textAlign: "center",
-        background: "#000",
+        background: "var(--bg)",
       }}
     >
       <p
@@ -37,14 +37,14 @@ export default function NotFound() {
           fontSize: "clamp(40px,7vw,80px)",
           fontWeight: 800,
           letterSpacing: "-0.03em",
-          color: "#fff",
+          color: "var(--fg)",
           lineHeight: 1.05,
           marginBottom: 20,
         }}
       >
         Page not found
       </h1>
-      <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", maxWidth: 400, marginBottom: 40, lineHeight: 1.65 }}>
+      <p style={{ fontSize: 17, color: "var(--fg-weaker)", maxWidth: 400, marginBottom: 40, lineHeight: 1.65 }}>
         The page you&apos;re looking for doesn&apos;t exist or may have moved.
       </p>
       <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", marginBottom: 56 }}>
@@ -68,7 +68,7 @@ export default function NotFound() {
             href={link.href}
             style={{
               fontSize: 13,
-              color: "rgba(255,255,255,0.4)",
+              color: "var(--fg-dim)",
               textDecoration: "none",
             }}
           >

@@ -7,6 +7,9 @@
   --accent:   #a100ff;
   --accent2:  #c850ff;
   --muted:    rgba(255,255,255,0.55);
+  --fg-dimmer:rgba(255,255,255,0.72);
+  --fg-weaker:rgba(255,255,255,0.47);
+  --fg-dim:   rgba(255,255,255,0.35);
   --border:   rgba(255,255,255,0.12);
   --card-bg:  rgba(255,255,255,0.04);
   --radius:   12px;
@@ -20,9 +23,12 @@
   --fg:       #0a0a0a;
   --accent:   #7700cc;
   --accent2:  #9b20e0;
-  --muted:    rgba(0,0,0,0.55);
+  --muted:    rgba(0,0,0,0.58);
+  --fg-dimmer:rgba(0,0,0,0.75);
+  --fg-weaker:rgba(0,0,0,0.50);
+  --fg-dim:   rgba(0,0,0,0.42);
   --border:   rgba(0,0,0,0.12);
-  --card-bg:  rgba(0,0,0,0.03);
+  --card-bg:  rgba(0,0,0,0.04);
   --header-bg-scrolled: rgba(245,245,247,0.94);
   --scrollbar-track: #e8e8ec;
 }
@@ -30,6 +36,25 @@
 [data-theme="light"] body {
   background: var(--bg);
   color: var(--fg);
+}
+
+/* Light mode: ensure section/card backgrounds aren't black-transparent on a light bg */
+[data-theme="light"] section,
+[data-theme="light"] main {
+  background: inherit;
+}
+
+/* Gradient text fix for light mode */
+[data-theme="light"] .gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 60%, #b020d8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Label (accent text) in light mode */
+[data-theme="light"] .label {
+  color: var(--accent);
 }
 
 [data-theme="light"] ::-webkit-scrollbar-track { background: var(--scrollbar-track); }

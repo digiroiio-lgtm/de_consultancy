@@ -54,7 +54,7 @@ export default function AboutPage() {
         style={{
           paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,160px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          borderBottom: "1px solid var(--border)",
           position: "relative",
           overflow: "hidden",
         }}
@@ -76,13 +76,13 @@ export default function AboutPage() {
           }}
         />
         <p className="label" style={{ marginBottom: 20 }}>Who We Are</p>
-        <h1 className="h1" style={{ color: "#fff", maxWidth: 680, marginBottom: 32 }}>
+        <h1 className="h1" style={{ color: "var(--fg)", maxWidth: 680, marginBottom: 32 }}>
           About Advisera Global
         </h1>
-        <p className="body-lg" style={{ color: "rgba(255,255,255,0.6)", maxWidth: 620, marginBottom: 16 }}>
+        <p className="body-lg" style={{ color: "var(--muted)", maxWidth: 620, marginBottom: 16 }}>
           Our founder built this firm to close the strategy-to-execution gap for manufacturers. We are operators first — every engagement is measured by realized EBITDA improvement, cash flow impact, and export revenue growth.
         </p>
-        <p className="body-lg" style={{ color: "rgba(255,255,255,0.45)", maxWidth: 580 }}>
+        <p className="body-lg" style={{ color: "var(--fg-weaker)", maxWidth: 580 }}>
           We are not an academic advisory firm. We work inside your commercial and operations rhythm to install systems your team can sustain.
         </p>
       </section>
@@ -92,19 +92,19 @@ export default function AboutPage() {
         style={{
           paddingBlock: "clamp(64px,8vw,120px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid var(--border)",
         }}
         className="max-w-site"
       >
         <p className="label" style={{ marginBottom: 16 }}>Our Principles</p>
-        <h2 className="h2" style={{ color: "#fff", marginBottom: "clamp(32px,4vw,56px)" }}>How We Work</h2>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(32px,4vw,56px)" }}>How We Work</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
           {values.map((v) => (
             <article key={v.title} className="card" style={{ padding: "28px 28px" }}>
-              <h3 style={{ fontSize: 17, fontWeight: 700, color: "#fff", marginBottom: 10, letterSpacing: "-0.01em" }}>
+              <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--fg)", marginBottom: 10, letterSpacing: "-0.01em" }}>
                 {v.title}
               </h3>
-              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65 }}>{v.desc}</p>
+              <p style={{ fontSize: 14, color: "var(--fg-weaker)", lineHeight: 1.65 }}>{v.desc}</p>
             </article>
           ))}
         </div>

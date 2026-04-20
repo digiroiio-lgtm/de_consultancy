@@ -12,8 +12,8 @@ export function ThemeToggle() {
       aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
       title={isDark ? "Light mode" : "Dark mode"}
       style={{
-        background: "rgba(255,255,255,0.08)",
-        border: "1px solid rgba(255,255,255,0.15)",
+        background: "var(--border)",
+        border: "1px solid var(--border)",
         borderRadius: 8,
         cursor: "pointer",
         width: 38,

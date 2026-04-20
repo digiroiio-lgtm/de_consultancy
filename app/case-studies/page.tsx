@@ -36,15 +36,15 @@ export default function CaseStudiesPage() {
         style={{
           paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,120px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          borderBottom: "1px solid var(--border)",
         }}
         className="max-w-site"
       >
         <p className="label" style={{ marginBottom: 20 }}>What We Think</p>
-        <h1 className="h1" style={{ color: "#fff", maxWidth: 640, marginBottom: 24 }}>
+        <h1 className="h1" style={{ color: "var(--fg)", maxWidth: 640, marginBottom: 24 }}>
           Case Studies
         </h1>
-        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", maxWidth: 480 }}>
+        <p className="body-lg" style={{ color: "var(--muted)", maxWidth: 480 }}>
           Problem. Action. Result. With numbers decision makers can trust.
         </p>
       </section>
@@ -53,7 +53,7 @@ export default function CaseStudiesPage() {
         style={{
           paddingBlock: "clamp(64px,8vw,120px)",
           paddingInline: "clamp(24px,5vw,80px)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid var(--border)",
         }}
         className="max-w-site"
       >

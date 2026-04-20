@@ -41,8 +41,8 @@ export function InsightCards() {
       style={{
         background: "#050505",
         paddingBlock: "clamp(80px,10vw,160px)",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid var(--border)",
+        borderBottom: "1px solid var(--border)",
       }}
     >
       <div className="max-w-site" style={{ paddingInline: "clamp(24px,5vw,80px)" }}>
@@ -58,7 +58,7 @@ export function InsightCards() {
         >
           <div>
             <p className="label">What We Think</p>
-            <h2 className="h2" style={{ color: "#fff", marginTop: 16 }}>
+            <h2 className="h2" style={{ color: "var(--fg)", marginTop: 16 }}>
               Insights &amp; Perspectives
             </h2>
           </div>
@@ -67,9 +67,9 @@ export function InsightCards() {
             style={{
               fontSize: 14,
               fontWeight: 600,
-              color: "rgba(255,255,255,0.55)",
+              color: "var(--muted)",
               textDecoration: "none",
-              borderBottom: "1px solid rgba(255,255,255,0.2)",
+              borderBottom: "1px solid var(--border)",
               paddingBottom: 2,
               whiteSpace: "nowrap",
             }}
@@ -132,7 +132,7 @@ export function InsightCards() {
                   style={{
                     fontSize: "clamp(16px,1.5vw,20px)",
                     fontWeight: 700,
-                    color: "#fff",
+                    color: "var(--fg)",
                     lineHeight: 1.3,
                     letterSpacing: "-0.01em",
                     margin: 0,
@@ -144,7 +144,7 @@ export function InsightCards() {
                 <p
                   style={{
                     fontSize: 14,
-                    color: "rgba(255,255,255,0.5)",
+                    color: "var(--fg-weaker)",
                     lineHeight: 1.65,
                     flex: 1,
                     margin: 0,

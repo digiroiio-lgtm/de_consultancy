@@ -4,14 +4,14 @@ export function FaqSection({ faqs }: { faqs: FaqItem[] }) {
   return (
     <section
       style={{
-        background: "#000",
+        background: "var(--bg)",
         paddingBlock: "clamp(80px,10vw,160px)",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid var(--border)",
       }}
     >
       <div className="max-w-site" style={{ paddingInline: "clamp(24px,5vw,80px)" }}>
         <p className="label" style={{ marginBottom: 16 }}>FAQ</p>
-        <h2 className="h2" style={{ color: "#fff", marginBottom: "clamp(40px,5vw,64px)" }}>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(40px,5vw,64px)" }}>
           Frequently Asked Questions
         </h2>
         <div
@@ -31,7 +31,7 @@ export function FaqSection({ faqs }: { faqs: FaqItem[] }) {
                 style={{
                   fontSize: 17,
                   fontWeight: 700,
-                  color: "#fff",
+                  color: "var(--fg)",
                   lineHeight: 1.3,
                   letterSpacing: "-0.01em",
                   marginBottom: 12,
@@ -39,7 +39,7 @@ export function FaqSection({ faqs }: { faqs: FaqItem[] }) {
               >
                 {faq.question}
               </h3>
-              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.65 }}>
+              <p style={{ fontSize: 15, color: "var(--muted)", lineHeight: 1.65 }}>
                 {faq.answer}
               </p>
             </article>

@@ -20,7 +20,7 @@ const labelStyle: React.CSSProperties = {
   gap: 8,
   fontSize: 13,
   fontWeight: 600,
-  color: "rgba(255,255,255,0.55)",
+  color: "var(--muted)",
   letterSpacing: "0.06em",
   textTransform: "uppercase",
 };
@@ -73,21 +73,21 @@ export function ContactMultistepForm() {
     <form
       onSubmit={handleSubmit}
       style={{
-        background: "rgba(255,255,255,0.04)",
-        border: "1px solid rgba(255,255,255,0.1)",
+        background: "var(--card-bg)",
+        border: "1px solid var(--border)",
         borderRadius: 16,
         padding: "clamp(28px,4vw,48px)",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 32 }}>
-        <h2 style={{ fontSize: 22, fontWeight: 700, color: "#fff", letterSpacing: "-0.01em" }}>Strategy Call Request</h2>
-        <span style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", fontWeight: 600 }}>
+        <h2 style={{ fontSize: 22, fontWeight: 700, color: "var(--fg)", letterSpacing: "-0.01em" }}>Strategy Call Request</h2>
+        <span style={{ fontSize: 13, color: "var(--fg-dim)", fontWeight: 600 }}>
           {step} / 3
         </span>
       </div>
 
       {/* Progress bar */}
-      <div style={{ height: 2, background: "rgba(255,255,255,0.08)", borderRadius: 1, marginBottom: 32, overflow: "hidden" }}>
+      <div style={{ height: 2, background: "var(--border)", borderRadius: 1, marginBottom: 32, overflow: "hidden" }}>
         <div
           style={{
             height: "100%",

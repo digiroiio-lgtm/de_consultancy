@@ -89,7 +89,7 @@ function AccordionItem({
   return (
     <div
       style={{
-        borderBottom: "1px solid rgba(255,255,255,0.1)",
+        borderBottom: "1px solid var(--border)",
         transition: "background 0.3s ease",
         background: isOpen ? "rgba(161,0,255,0.04)" : "transparent",
       }}
@@ -117,7 +117,7 @@ function AccordionItem({
             style={{
               fontSize: 12,
               fontWeight: 700,
-              color: isOpen ? "#a100ff" : "rgba(255,255,255,0.3)",
+              color: isOpen ? "#a100ff" : "var(--fg-dim)",
               letterSpacing: "0.1em",
               fontVariantNumeric: "tabular-nums",
               minWidth: 24,
@@ -132,7 +132,7 @@ function AccordionItem({
               style={{
                 fontSize: "clamp(18px,2.5vw,28px)",
                 fontWeight: 700,
-                color: "#fff",
+                color: "var(--fg)",
                 letterSpacing: "-0.01em",
                 lineHeight: 1.2,
                 margin: 0,
@@ -143,7 +143,7 @@ function AccordionItem({
             <p
               style={{
                 fontSize: 13,
-                color: "rgba(255,255,255,0.45)",
+                color: "var(--fg-weaker)",
                 marginTop: 4,
                 display: isOpen ? "none" : "block",
               }}
@@ -159,7 +159,7 @@ function AccordionItem({
             width: 36,
             height: 36,
             borderRadius: "50%",
-            border: `1px solid ${isOpen ? "#a100ff" : "rgba(255,255,255,0.2)"}`,
+            border: `1px solid ${isOpen ? "#a100ff" : "var(--border)"}`,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -167,7 +167,7 @@ function AccordionItem({
             transition: "transform 0.35s ease, border-color 0.25s ease, background 0.25s ease",
             transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
             background: isOpen ? "rgba(161,0,255,0.15)" : "transparent",
-            color: isOpen ? "#a100ff" : "rgba(255,255,255,0.6)",
+            color: isOpen ? "#a100ff" : "var(--muted)",
             fontSize: 20,
             lineHeight: 1,
           }}
@@ -207,14 +207,14 @@ function AccordionItem({
                     style={{
                       fontSize: 15,
                       fontWeight: 700,
-                      color: "#fff",
+                      color: "var(--fg)",
                       marginBottom: 10,
                       letterSpacing: "-0.01em",
                     }}
                   >
                     {item.title}
                   </h4>
-                  <p style={{ fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.65 }}>
+                  <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.65 }}>
                     {item.desc}
                   </p>
                 </div>
@@ -249,18 +249,18 @@ export function ServiceAccordion() {
   const [openId, setOpenId] = useState<string | null>("management");
 
   return (
-    <section style={{ background: "#000", paddingBlock: "clamp(80px,10vw,160px)" }}>
+    <section style={{ background: "var(--bg)", paddingBlock: "clamp(80px,10vw,160px)" }}>
       <div className="max-w-site" style={{ paddingInline: "clamp(24px,5vw,80px)", marginBottom: "clamp(40px,5vw,64px)" }}>
         <p className="label">Our Services</p>
-        <h2 className="h2" style={{ color: "#fff", marginTop: 16, maxWidth: 560 }}>
+        <h2 className="h2" style={{ color: "var(--fg)", marginTop: 16, maxWidth: 560 }}>
           What We Do
         </h2>
-        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", marginTop: 16, maxWidth: 520 }}>
+        <p className="body-lg" style={{ color: "var(--muted)", marginTop: 16, maxWidth: 520 }}>
           Execution-led consulting across management operations and global expansion — delivering results in weeks, not months.
         </p>
       </div>
 
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+      <div style={{ borderTop: "1px solid var(--border)" }}>
         {services.map((service) => (
           <AccordionItem
             key={service.id}

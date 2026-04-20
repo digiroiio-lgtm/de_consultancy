@@ -12,17 +12,17 @@ export function RoiCalculator() {
   return (
     <section
       style={{
-        background: "#000",
+        background: "var(--bg)",
         paddingBlock: "clamp(80px,10vw,160px)",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid var(--border)",
       }}
     >
       <div className="max-w-site" style={{ paddingInline: "clamp(24px,5vw,80px)" }}>
         <p className="label" style={{ marginBottom: 16 }}>ROI Calculator</p>
-        <h2 className="h2" style={{ color: "#fff", marginBottom: 8 }}>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 8 }}>
           Estimate Your Savings
         </h2>
-        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", marginBottom: "clamp(40px,5vw,64px)", maxWidth: 480 }}>
+        <p className="body-lg" style={{ color: "var(--muted)", marginBottom: "clamp(40px,5vw,64px)", maxWidth: 480 }}>
           See how much cost reduction your business could achieve with Advisera Global.
         </p>
 
@@ -37,7 +37,7 @@ export function RoiCalculator() {
           {/* Inputs */}
           <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
             <label style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.6)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "var(--muted)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
                 Annual Controllable Spend (USD)
               </span>
               <input
@@ -50,7 +50,7 @@ export function RoiCalculator() {
             </label>
 
             <label style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.6)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "var(--muted)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
                 Target Cost Reduction: <span style={{ color: "#a100ff" }}>{targetReduction}%</span>
               </span>
               <input
@@ -61,7 +61,7 @@ export function RoiCalculator() {
                 onChange={(e) => setTargetReduction(Number(e.target.value))}
                 style={{ accentColor: "#a100ff" }}
               />
-              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "var(--fg-dim)" }}>
                 <span>0%</span><span>15%</span><span>30%</span>
               </div>
             </label>
@@ -79,7 +79,7 @@ export function RoiCalculator() {
               gap: 16,
             }}
           >
-            <p style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.45)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+            <p style={{ fontSize: 13, fontWeight: 700, color: "var(--fg-weaker)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
               Estimated Annual Savings
             </p>
             <p
@@ -88,14 +88,14 @@ export function RoiCalculator() {
                 fontWeight: 800,
                 letterSpacing: "-0.04em",
                 lineHeight: 1,
-                color: "#fff",
+                color: "var(--fg)",
               }}
             >
               <span className="gradient-text">
                 ${savings.toLocaleString("en-US", { maximumFractionDigits: 0 })}
               </span>
             </p>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>
+            <p style={{ fontSize: 14, color: "var(--fg-weaker)", lineHeight: 1.6 }}>
               Based on {targetReduction}% reduction of ${annualSpend.toLocaleString("en-US")} controllable spend. Results achievable within 90–180 days.
             </p>
             <Link href="/contact" className="btn-primary" style={{ alignSelf: "flex-start", marginTop: 8 }}>

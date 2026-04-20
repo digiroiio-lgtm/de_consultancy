@@ -50,7 +50,7 @@ export function CaseStudyFilter({ studies }: { studies: CaseStudy[] }) {
               style={{
                 fontSize: 18,
                 fontWeight: 700,
-                color: "#fff",
+                color: "var(--fg)",
                 lineHeight: 1.3,
                 letterSpacing: "-0.01em",
                 marginBottom: 12,
@@ -58,7 +58,7 @@ export function CaseStudyFilter({ studies }: { studies: CaseStudy[] }) {
             >
               {study.title}
             </h3>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65, marginBottom: 16 }}>
+            <p style={{ fontSize: 14, color: "var(--fg-weaker)", lineHeight: 1.65, marginBottom: 16 }}>
               {study.result}
             </p>
             <Link

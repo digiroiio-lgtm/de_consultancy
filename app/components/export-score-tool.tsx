@@ -30,15 +30,15 @@ export function ExportScoreTool() {
       style={{
         background: "#050505",
         paddingBlock: "clamp(80px,10vw,160px)",
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid var(--border)",
       }}
     >
       <div className="max-w-site" style={{ paddingInline: "clamp(24px,5vw,80px)" }}>
         <p className="label" style={{ marginBottom: 16 }}>Self-Assessment</p>
-        <h2 className="h2" style={{ color: "#fff", marginBottom: 8 }}>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 8 }}>
           Export Readiness Score
         </h2>
-        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", marginBottom: "clamp(40px,5vw,64px)", maxWidth: 480 }}>
+        <p className="body-lg" style={{ color: "var(--muted)", marginBottom: "clamp(40px,5vw,64px)", maxWidth: 480 }}>
           Rate your export capabilities from 1 (early stage) to 5 (best-in-class). Get your readiness score instantly.
         </p>
 
@@ -55,7 +55,7 @@ export function ExportScoreTool() {
             {factors.map((factor, i) => (
               <label key={factor.label} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontSize: 14, fontWeight: 600, color: "rgba(255,255,255,0.75)" }}>
+                  <span style={{ fontSize: 14, fontWeight: 600, color: "var(--fg-dimmer)" }}>
                     {factor.icon} {factor.label}
                   </span>
                   <span
@@ -89,7 +89,7 @@ export function ExportScoreTool() {
           <div
             style={{
               background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.1)",
+              border: "1px solid var(--border)",
               borderRadius: 16,
               padding: "clamp(32px,4vw,56px)",
               display: "flex",
@@ -102,7 +102,7 @@ export function ExportScoreTool() {
             {/* Circular score */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
               <svg width="140" height="140" viewBox="0 0 140 140">
-                <circle cx="70" cy="70" r="58" fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="10" />
+                <circle cx="70" cy="70" r="58" fill="none" stroke="var(--border)" strokeWidth="10" />
                 <circle
                   cx="70"
                   cy="70"
@@ -138,7 +138,7 @@ export function ExportScoreTool() {
                 >
                   {readiness.text}
                 </p>
-                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>
+                <p style={{ fontSize: 13, color: "var(--fg-dim)", marginTop: 4 }}>
                   Export Readiness Score
                 </p>
               </div>
@@ -152,7 +152,7 @@ export function ExportScoreTool() {
                     style={{
                       flex: 1,
                       height: 4,
-                      background: "rgba(255,255,255,0.08)",
+                      background: "var(--border)",
                       borderRadius: 2,
                       overflow: "hidden",
                     }}
@@ -167,7 +167,7 @@ export function ExportScoreTool() {
                       }}
                     />
                   </div>
-                  <span style={{ fontSize: 12, color: "rgba(255,255,255,0.4)", minWidth: 30, textAlign: "right" }}>
+                  <span style={{ fontSize: 12, color: "var(--fg-dim)", minWidth: 30, textAlign: "right" }}>
                     {scores[i]}/5
                   </span>
                 </div>
