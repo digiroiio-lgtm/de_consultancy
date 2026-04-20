@@ -6,9 +6,10 @@ export function proxy(req: NextRequest) {
   const isTrPath = pathname === "/tr" || pathname.startsWith("/tr/");
   const locale = isTrPath ? "tr" : "en";
 
-  const res = NextResponse.next();
-  // Expose locale to server components via a custom response header
-  res.headers.set("x-locale", locale);
+  // Clone request headers and inject x-locale so server components can read it
+  // via `headers()` from next/headers (which reads REQUEST headers, not response headers).
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set("x-locale", locale);
 
   // Gentle Accept-Language redirect — only fires on the root homepage for
   // first-time visitors whose primary language is Turkish.
@@ -19,7 +20,6 @@ export function proxy(req: NextRequest) {
       const firstTag = acceptLang.split(",")[0]?.split(";")[0]?.trim().toLowerCase() ?? "";
       if (firstTag === "tr" || firstTag.startsWith("tr-")) {
         const redirectRes = NextResponse.redirect(new URL("/tr", req.url));
-        redirectRes.headers.set("x-locale", "tr");
         redirectRes.cookies.set("locale-preference", "tr", {
           maxAge: 60 * 60 * 24 * 30, // 30 days
           sameSite: "lax",
@@ -30,7 +30,9 @@ export function proxy(req: NextRequest) {
     }
   }
 
-  return res;
+  return NextResponse.next({
+    request: { headers: requestHeaders },
+  });
 }
 
 export const config = {
