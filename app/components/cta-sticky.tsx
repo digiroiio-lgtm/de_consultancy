@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import type { Locale } from "../lib/i18n";
 
 const ctaCopy: Record<Locale, { href: string; desktopLabel: string; mobileLabel: string }> = {
@@ -9,7 +10,12 @@ const ctaCopy: Record<Locale, { href: string; desktopLabel: string; mobileLabel:
   tr: { href: "/tr/iletisim", desktopLabel: "Strateji Görüşmesi Ayırtın",  mobileLabel: "Strateji Görüşmesi Ayırtın →" },
 };
 
-export function StickyCta({ locale = "en" }: { locale?: Locale }) {
+export function StickyCta({ locale: serverLocale = "en" }: { locale?: Locale }) {
+  const pathname = usePathname();
+  // Derive locale from the current URL so it stays correct during client-side
+  // navigation between EN and TR pages (root layout never re-renders on navigation).
+  const locale: Locale = pathname === "/tr" || pathname.startsWith("/tr/") ? "tr" : "en";
+  void serverLocale; // prop kept for API compatibility
   const [visible, setVisible] = useState(false);
   const cta = ctaCopy[locale];
 

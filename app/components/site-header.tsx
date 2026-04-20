@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
 import type { Locale } from "../lib/i18n";
@@ -24,7 +25,12 @@ const ctaLink: Record<Locale, { href: string; label: string }> = {
   tr: { href: "/tr/iletisim", label: "Görüşme Ayırtın" },
 };
 
-export function SiteHeader({ locale = "en" }: { locale?: Locale }) {
+export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale }) {
+  const pathname = usePathname();
+  // Derive locale from the current URL so it stays correct during client-side
+  // navigation between EN and TR pages (root layout never re-renders on navigation).
+  const locale: Locale = pathname === "/tr" || pathname.startsWith("/tr/") ? "tr" : "en";
+  void serverLocale; // prop kept for API compatibility
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { company } from "../lib/content";
 import type { Locale } from "../lib/i18n";
 
@@ -57,7 +60,12 @@ const footerMeta: Record<Locale, { tagline: string; copyright: string; privacyLa
   },
 };
 
-export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
+export function SiteFooter({ locale: serverLocale = "en" }: { locale?: Locale }) {
+  const pathname = usePathname();
+  // Derive locale from the current URL so it stays correct during client-side
+  // navigation between EN and TR pages (root layout never re-renders on navigation).
+  const locale: Locale = pathname === "/tr" || pathname.startsWith("/tr/") ? "tr" : "en";
+  void serverLocale; // prop kept for API compatibility
   const footerLinks = footerLinksByLocale[locale];
   const meta = footerMeta[locale];
   const homeHref = locale === "tr" ? "/tr" : "/";
