@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+a {
+  text-underline-offset: 3px;
+}
