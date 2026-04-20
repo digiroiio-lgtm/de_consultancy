@@ -5,7 +5,7 @@ import { FaqItem } from "../lib/content";
 import { breadcrumbSchema, faqSchema } from "../lib/schema";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Growtura Global",
   description: "Execution-driven consulting partner for manufacturers seeking measurable profitability and export growth.",
   alternates: { canonical: "/about" },
 };
@@ -17,9 +17,28 @@ const faqs: FaqItem[] = [
   },
 ];
 
+const values = [
+  {
+    title: "Execution Over Advice",
+    desc: "We install systems, not decks. Every engagement ends with running processes your team owns.",
+  },
+  {
+    title: "Measurable Only",
+    desc: "No engagement without baseline, target, and realized-value tracking. ROI is non-negotiable.",
+  },
+  {
+    title: "Manufacturer-First",
+    desc: "We work exclusively in manufacturing, packaging, food production, and industrial sectors.",
+  },
+  {
+    title: "Global Ambition",
+    desc: "From Turkish factories to US shelves — we build the export infrastructure that lasts.",
+  },
+];
+
 export default function AboutPage() {
   return (
-    <div className="space-y-8">
+    <div>
       <SchemaScript
         data={[
           breadcrumbSchema([
@@ -29,16 +48,68 @@ export default function AboutPage() {
           faqSchema(faqs),
         ]}
       />
-      <section className="rounded-2xl bg-white p-8">
-        <h1 className="text-4xl font-bold text-[#0A2540]">About DE Consultancy</h1>
-        <p className="mt-4 text-zinc-700">
-          Our founder built this firm to close the strategy-to-execution gap for manufacturers. We are operators first: every
-          engagement is measured by realized EBITDA improvement, cash flow impact, and export revenue growth.
+
+      {/* Hero */}
+      <section
+        style={{
+          paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,160px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+        className="max-w-site"
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: -100,
+            left: -100,
+            width: 500,
+            height: 500,
+            borderRadius: "50%",
+            background: "#a100ff",
+            filter: "blur(120px)",
+            opacity: 0.12,
+            pointerEvents: "none",
+          }}
+        />
+        <p className="label" style={{ marginBottom: 20 }}>Who We Are</p>
+        <h1 className="h1" style={{ color: "#fff", maxWidth: 680, marginBottom: 32 }}>
+          About Growtura Global
+        </h1>
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.6)", maxWidth: 620, marginBottom: 16 }}>
+          Our founder built this firm to close the strategy-to-execution gap for manufacturers. We are operators first — every engagement is measured by realized EBITDA improvement, cash flow impact, and export revenue growth.
         </p>
-        <p className="mt-3 text-zinc-700">
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.45)", maxWidth: 580 }}>
           We are not an academic advisory firm. We work inside your commercial and operations rhythm to install systems your team can sustain.
         </p>
       </section>
+
+      {/* Values */}
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+        className="max-w-site"
+      >
+        <p className="label" style={{ marginBottom: 16 }}>Our Principles</p>
+        <h2 className="h2" style={{ color: "#fff", marginBottom: "clamp(32px,4vw,56px)" }}>How We Work</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+          {values.map((v) => (
+            <article key={v.title} className="card" style={{ padding: "28px 28px" }}>
+              <h3 style={{ fontSize: 17, fontWeight: 700, color: "#fff", marginBottom: 10, letterSpacing: "-0.01em" }}>
+                {v.title}
+              </h3>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65 }}>{v.desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <FaqSection faqs={faqs} />
     </div>
   );

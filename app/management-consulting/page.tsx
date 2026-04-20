@@ -23,9 +23,23 @@ const faqs: FaqItem[] = [
   },
 ];
 
+const capabilities = [
+  ["Cost Reduction Systems", "Remove waste and leakage with line-level cost visibility and controls."],
+  ["Procurement Optimization", "Standardize supplier strategy and contract discipline to reduce spend volatility."],
+  ["Pricing Strategy", "Build segmentation, floor pricing, and deal governance to protect gross margin."],
+  ["Cash Flow Optimization", "Improve cash conversion via receivable discipline and inventory turns."],
+  ["KPI Systems", "Install executive dashboards and weekly governance for faster decisions."],
+];
+
+const metrics = [
+  { kpi: "EBITDA Margin", before: "9%", after: "14%", arrow: true },
+  { kpi: "Procurement Savings", before: "Ad-hoc buying", after: "8–14% category savings", arrow: true },
+  { kpi: "Cash Conversion", before: "104 days", after: "75 days", arrow: false },
+];
+
 export default function ManagementConsultingPage() {
   return (
-    <div className="space-y-10">
+    <div>
       <SchemaScript
         data={[
           breadcrumbSchema([
@@ -35,58 +49,99 @@ export default function ManagementConsultingPage() {
           faqSchema(faqs),
         ]}
       />
-      <section className="rounded-2xl bg-white p-8">
-        <h1 className="text-4xl font-bold text-[#0A2540]">Management Consulting (Financial + Operational Excellence)</h1>
-        <p className="mt-3 text-zinc-700">We improve margin, control, and execution speed for manufacturing leadership teams.</p>
+
+      {/* Hero */}
+      <section
+        style={{
+          paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,160px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+        className="max-w-site"
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: -100,
+            right: -200,
+            width: 500,
+            height: 500,
+            borderRadius: "50%",
+            background: "#a100ff",
+            filter: "blur(120px)",
+            opacity: 0.15,
+            pointerEvents: "none",
+          }}
+        />
+        <p className="label" style={{ marginBottom: 20 }}>Management Consulting</p>
+        <h1 className="h1" style={{ color: "#fff", maxWidth: 720, marginBottom: 24 }}>
+          Financial + Operational Excellence
+        </h1>
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.6)", maxWidth: 560, marginBottom: 40 }}>
+          We improve margin, control, and execution speed for manufacturing leadership teams — delivering results in weeks, not months.
+        </p>
+        <Link href="/contact" className="btn-primary">
+          Book a Strategy Call →
+        </Link>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-2">
-        {[
-          ["Cost Reduction Systems", "Remove waste and leakage with line-level cost visibility and controls."],
-          ["Procurement Optimization", "Standardize supplier strategy and contract discipline to reduce spend volatility."],
-          ["Pricing Strategy", "Build segmentation, floor pricing, and deal governance to protect gross margin."],
-          ["Cash Flow Optimization", "Improve cash conversion via receivable discipline and inventory turns."],
-          ["KPI Systems", "Install executive dashboards and weekly governance for faster decisions."],
-        ].map(([title, copy]) => (
-          <article key={title} className="rounded-xl border border-zinc-200 bg-white p-6">
-            <h2 className="text-xl font-semibold text-zinc-900">{title}</h2>
-            <p className="mt-2 text-zinc-700">{copy}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className="rounded-2xl border border-zinc-200 bg-white p-8">
-        <h2 className="text-2xl font-semibold text-[#0A2540]">Before / After Metrics</h2>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
-          {[
-            ["EBITDA Margin", "Before: 9%", "After: 14%"],
-            ["Procurement Savings", "Before: ad-hoc buying", "After: 8-14% category savings"],
-            ["Cash Conversion", "Before: 104 days", "After: 75 days"],
-          ].map(([kpi, before, after]) => (
-            <article key={kpi} className="rounded-xl bg-zinc-50 p-5">
-              <h3 className="font-semibold text-zinc-900">{kpi}</h3>
-              <p className="mt-2 text-sm text-zinc-700">{before}</p>
-              <p className="text-sm font-semibold text-emerald-700">{after}</p>
+      {/* Capabilities */}
+      <section style={{ paddingBlock: "clamp(64px,8vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+        className="max-w-site">
+        <p className="label" style={{ marginBottom: 16 }}>Capabilities</p>
+        <h2 className="h2" style={{ color: "#fff", marginBottom: "clamp(32px,4vw,56px)" }}>What We Do</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+          {capabilities.map(([title, copy]) => (
+            <article key={title} className="card" style={{ padding: "28px 28px" }}>
+              <h3 style={{ fontSize: 17, fontWeight: 700, color: "#fff", marginBottom: 10, letterSpacing: "-0.01em" }}>{title}</h3>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65 }}>{copy}</p>
             </article>
           ))}
         </div>
-        <p className="mt-5 text-zinc-700">
-          ROI is calculated from verified cost reduction, pricing gain, and working capital release versus project investment.
-        </p>
+      </section>
+
+      {/* Before / After */}
+      <section style={{ paddingBlock: "clamp(64px,8vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#050505" }}
+        className="max-w-site">
+        <p className="label" style={{ marginBottom: 16 }}>Proven Impact</p>
+        <h2 className="h2" style={{ color: "#fff", marginBottom: "clamp(32px,4vw,56px)" }}>Before / After Metrics</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: 20 }}>
+          {metrics.map((m) => (
+            <article key={m.kpi} className="card" style={{ padding: "28px 28px" }}>
+              <h3 style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 16 }}>
+                {m.kpi}
+              </h3>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", marginBottom: 8 }}>{m.before}</p>
+              <p style={{ fontSize: 22, fontWeight: 800, color: "#a100ff", letterSpacing: "-0.02em" }}>
+                {m.arrow ? "↑ " : "↓ "}{m.after}
+              </p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <FaqSection faqs={faqs} />
 
-      <section className="rounded-2xl bg-[#0A2540] p-8 text-white">
-        <h2 className="text-2xl font-semibold">Need a free cost analysis?</h2>
-        <p className="mt-2 text-blue-100">Share your baseline data and we will map top 3 margin opportunities.</p>
-        <div className="mt-4 flex gap-3">
-          <Link href="/contact" className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#0A2540]">
-            Book Strategy Call
-          </Link>
-          <Link href="/cost-reduction-consulting" className="rounded-full border border-blue-200 px-5 py-3 text-sm font-semibold">
-            Free Cost Analysis
-          </Link>
+      {/* CTA */}
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          background: "#000",
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+        }}
+        className="max-w-site"
+      >
+        <h2 className="h2" style={{ color: "#fff", marginBottom: 16 }}>Need a free cost analysis?</h2>
+        <p style={{ fontSize: 17, color: "rgba(255,255,255,0.55)", marginBottom: 32, maxWidth: 440 }}>
+          Share your baseline data and we will map your top 3 margin improvement opportunities.
+        </p>
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+          <Link href="/contact" className="btn-primary">Book Strategy Call →</Link>
+          <Link href="/cost-reduction-consulting" className="btn-outline">Free Cost Analysis</Link>
         </div>
       </section>
     </div>

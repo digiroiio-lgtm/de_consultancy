@@ -33,7 +33,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
   if (!study) notFound();
 
   return (
-    <div className="space-y-8">
+    <div>
       <SchemaScript
         data={breadcrumbSchema([
           { name: "Home", path: "/" },
@@ -41,32 +41,87 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           { name: study.title, path: `/case-studies/${study.slug}` },
         ])}
       />
-      <section className="rounded-2xl bg-white p-8">
-        <h1 className="text-4xl font-bold text-[#0A2540]">{study.title}</h1>
-        <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-zinc-500">{study.industry} · {study.service}</p>
+
+      {/* Hero */}
+      <section
+        style={{
+          paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+        }}
+        className="max-w-site"
+      >
+        <p className="label" style={{ marginBottom: 20 }}>
+          {study.industry} · {study.service}
+        </p>
+        <h1 className="h1" style={{ color: "#fff", maxWidth: 720, marginBottom: 24 }}>
+          {study.title}
+        </h1>
+
+        {/* Metrics row */}
+        <div style={{ display: "flex", gap: 32, flexWrap: "wrap", marginTop: 32 }}>
+          {study.metrics.map((m) => (
+            <div key={m}>
+              <p style={{ fontSize: "clamp(20px,3vw,32px)", fontWeight: 800, color: "#a100ff", letterSpacing: "-0.02em" }}>
+                ↑ {m.split(" ").slice(0, 1).join("")}
+              </p>
+              <p style={{ fontSize: 13, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>
+                {m.split(" ").slice(1).join(" ")}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
-      <section className="grid gap-4 md:grid-cols-3">
-        <article className="rounded-xl border border-zinc-200 bg-white p-6 md:col-span-1">
-          <h2 className="text-lg font-semibold text-zinc-900">Problem</h2>
-          <p className="mt-2 text-zinc-700">{study.problem}</p>
-        </article>
-        <article className="rounded-xl border border-zinc-200 bg-white p-6 md:col-span-1">
-          <h2 className="text-lg font-semibold text-zinc-900">Action</h2>
-          <p className="mt-2 text-zinc-700">{study.action}</p>
-        </article>
-        <article className="rounded-xl border border-zinc-200 bg-white p-6 md:col-span-1">
-          <h2 className="text-lg font-semibold text-zinc-900">Result</h2>
-          <p className="mt-2 text-zinc-700">{study.result}</p>
-          <ul className="mt-3 list-disc pl-5 text-sm text-zinc-700">
-            {study.metrics.map((metric) => (
-              <li key={metric}>{metric}</li>
-            ))}
-          </ul>
-        </article>
+
+      {/* PAR grid */}
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+        className="max-w-site"
+      >
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+          {[
+            { label: "Problem", content: study.problem },
+            { label: "Action", content: study.action },
+            { label: "Result", content: study.result },
+          ].map((item) => (
+            <article key={item.label} className="card" style={{ padding: "28px 28px" }}>
+              <h2
+                style={{
+                  fontSize: 11,
+                  fontWeight: 700,
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "#a100ff",
+                  marginBottom: 14,
+                }}
+              >
+                {item.label}
+              </h2>
+              <p style={{ fontSize: 15, color: "rgba(255,255,255,0.7)", lineHeight: 1.65 }}>{item.content}</p>
+            </article>
+          ))}
+        </div>
       </section>
-      <Link href="/contact" className="inline-block rounded-full bg-[#0A2540] px-6 py-3 text-sm font-semibold text-white">
-        Book Strategy Call
-      </Link>
+
+      {/* CTA */}
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+        }}
+        className="max-w-site"
+      >
+        <h2 className="h2" style={{ color: "#fff", marginBottom: 24 }}>
+          Get Similar Results
+        </h2>
+        <Link href="/contact" className="btn-primary">
+          Book Strategy Call →
+        </Link>
+      </section>
     </div>
   );
 }

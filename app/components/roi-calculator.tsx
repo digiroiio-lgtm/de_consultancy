@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 export function RoiCalculator() {
@@ -9,35 +10,108 @@ export function RoiCalculator() {
   const savings = useMemo(() => (annualSpend * targetReduction) / 100, [annualSpend, targetReduction]);
 
   return (
-    <section className="rounded-2xl border border-zinc-200 bg-white p-6">
-      <h2 className="text-2xl font-semibold text-[#0A2540]">ROI Calculator: Cost Savings Estimator</h2>
-      <p className="mt-2 text-zinc-700">Estimate annual savings from your operational improvement program.</p>
-      <div className="mt-6 grid gap-4 md:grid-cols-2">
-        <label className="text-sm font-medium text-zinc-700">
-          Annual controllable spend (USD)
-          <input
-            type="number"
-            min={0}
-            value={annualSpend}
-            onChange={(event) => setAnnualSpend(Number(event.target.value || 0))}
-            className="mt-2 w-full rounded-lg border border-zinc-300 px-3 py-2"
-          />
-        </label>
-        <label className="text-sm font-medium text-zinc-700">
-          Target reduction (%)
-          <input
-            type="number"
-            min={0}
-            max={40}
-            value={targetReduction}
-            onChange={(event) => setTargetReduction(Number(event.target.value || 0))}
-            className="mt-2 w-full rounded-lg border border-zinc-300 px-3 py-2"
-          />
-        </label>
+    <section
+      style={{
+        background: "#000",
+        paddingBlock: "clamp(80px,10vw,160px)",
+        borderTop: "1px solid rgba(255,255,255,0.06)",
+      }}
+    >
+      <div className="max-w-site" style={{ paddingInline: "clamp(24px,5vw,80px)" }}>
+        <p className="label" style={{ marginBottom: 16 }}>ROI Calculator</p>
+        <h2 className="h2" style={{ color: "#fff", marginBottom: 8 }}>
+          Estimate Your Savings
+        </h2>
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", marginBottom: "clamp(40px,5vw,64px)", maxWidth: 480 }}>
+          See how much cost reduction your business could achieve with Growtura Global.
+        </p>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "clamp(40px,6vw,80px)",
+            alignItems: "center",
+          }}
+        >
+          {/* Inputs */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+            <label style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.6)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                Annual Controllable Spend (USD)
+              </span>
+              <input
+                type="number"
+                min={0}
+                value={annualSpend}
+                onChange={(e) => setAnnualSpend(Number(e.target.value || 0))}
+                className="input-dark"
+              />
+            </label>
+
+            <label style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+              <span style={{ fontSize: 13, fontWeight: 600, color: "rgba(255,255,255,0.6)", letterSpacing: "0.05em", textTransform: "uppercase" }}>
+                Target Cost Reduction: <span style={{ color: "#a100ff" }}>{targetReduction}%</span>
+              </span>
+              <input
+                type="range"
+                min={0}
+                max={30}
+                value={targetReduction}
+                onChange={(e) => setTargetReduction(Number(e.target.value))}
+                style={{ accentColor: "#a100ff" }}
+              />
+              <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
+                <span>0%</span><span>15%</span><span>30%</span>
+              </div>
+            </label>
+          </div>
+
+          {/* Output */}
+          <div
+            style={{
+              background: "rgba(161,0,255,0.06)",
+              border: "1px solid rgba(161,0,255,0.25)",
+              borderRadius: 16,
+              padding: "clamp(32px,4vw,56px)",
+              display: "flex",
+              flexDirection: "column",
+              gap: 16,
+            }}
+          >
+            <p style={{ fontSize: 13, fontWeight: 700, color: "rgba(255,255,255,0.45)", letterSpacing: "0.12em", textTransform: "uppercase" }}>
+              Estimated Annual Savings
+            </p>
+            <p
+              style={{
+                fontSize: "clamp(40px,6vw,72px)",
+                fontWeight: 800,
+                letterSpacing: "-0.04em",
+                lineHeight: 1,
+                color: "#fff",
+              }}
+            >
+              <span className="gradient-text">
+                ${savings.toLocaleString("en-US", { maximumFractionDigits: 0 })}
+              </span>
+            </p>
+            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", lineHeight: 1.6 }}>
+              Based on {targetReduction}% reduction of ${annualSpend.toLocaleString("en-US")} controllable spend. Results achievable within 90–180 days.
+            </p>
+            <Link href="/contact" className="btn-primary" style={{ alignSelf: "flex-start", marginTop: 8 }}>
+              Get My Plan →
+            </Link>
+          </div>
+        </div>
       </div>
-      <p className="mt-4 text-xl font-semibold text-zinc-900">
-        Estimated annual savings: ${savings.toLocaleString("en-US", { maximumFractionDigits: 0 })}
-      </p>
+
+      <style>{`
+        @media (max-width: 768px) {
+          section > div > div[style*="grid-template-columns: 1fr 1fr"] {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

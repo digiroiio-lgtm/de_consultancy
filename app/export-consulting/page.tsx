@@ -23,9 +23,17 @@ const faqs: FaqItem[] = [
   },
 ];
 
+const capabilities = [
+  ["Market Entry Strategy (USA / EU / GCC)", "Target segment selection, product-market fit, and launch sequencing."],
+  ["Distributor Finding Systems", "Pipeline design, qualification scorecards, and closing process."],
+  ["Pricing for Export Markets", "Channel-ready margin architecture by territory and Incoterms."],
+  ["Logistics & Compliance", "Trade documentation, labeling controls, and risk reduction playbooks."],
+  ["Private Label Strategy", "Private label partnership model for scale and recurring demand."],
+];
+
 export default function ExportConsultingPage() {
   return (
-    <div className="space-y-10">
+    <div>
       <SchemaScript
         data={[
           breadcrumbSchema([
@@ -35,47 +43,101 @@ export default function ExportConsultingPage() {
           faqSchema(faqs),
         ]}
       />
-      <section className="rounded-2xl bg-white p-8">
-        <h1 className="text-4xl font-bold text-[#0A2540]">Export Consulting (Global Expansion for Manufacturers)</h1>
-        <p className="mt-3 text-zinc-700">From local manufacturer to global supplier with structured market-entry execution.</p>
+
+      {/* Hero */}
+      <section
+        style={{
+          paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,160px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+        className="max-w-site"
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            top: -80,
+            right: -150,
+            width: 500,
+            height: 500,
+            borderRadius: "50%",
+            background: "#c850ff",
+            filter: "blur(120px)",
+            opacity: 0.15,
+            pointerEvents: "none",
+          }}
+        />
+        <p className="label" style={{ marginBottom: 20 }}>Export Consulting</p>
+        <h1 className="h1" style={{ color: "#fff", maxWidth: 720, marginBottom: 24 }}>
+          Global Expansion for Manufacturers
+        </h1>
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.6)", maxWidth: 540, marginBottom: 40 }}>
+          From local manufacturer to global supplier — with structured market-entry execution, distributor systems, and export pricing architecture.
+        </p>
+        <Link href="/contact" className="btn-primary">
+          Get Your Export Plan →
+        </Link>
       </section>
 
-      <section className="grid gap-4 md:grid-cols-2">
-        {[
-          ["Market Entry Strategy (USA / EU / GCC)", "Target segment selection, product-market fit, and launch sequencing."],
-          ["Distributor Finding Systems", "Pipeline design, qualification scorecards, and closing process."],
-          ["Pricing for Export Markets", "Channel-ready margin architecture by territory and Incoterms."],
-          ["Logistics & Compliance", "Trade documentation, labeling controls, and risk reduction playbooks."],
-          ["Private Label Strategy", "Private label partnership model for scale and recurring demand."],
-        ].map(([title, copy]) => (
-          <article key={title} className="rounded-xl border border-zinc-200 bg-white p-6">
-            <h2 className="text-xl font-semibold text-zinc-900">{title}</h2>
-            <p className="mt-2 text-zinc-700">{copy}</p>
-          </article>
-        ))}
+      {/* Capabilities */}
+      <section style={{ paddingBlock: "clamp(64px,8vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+        className="max-w-site">
+        <p className="label" style={{ marginBottom: 16 }}>Capabilities</p>
+        <h2 className="h2" style={{ color: "#fff", marginBottom: "clamp(32px,4vw,56px)" }}>What We Do</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+          {capabilities.map(([title, copy]) => (
+            <article key={title} className="card" style={{ padding: "28px 28px" }}>
+              <h3 style={{ fontSize: 17, fontWeight: 700, color: "#fff", marginBottom: 10, letterSpacing: "-0.01em" }}>{title}</h3>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.5)", lineHeight: 1.65 }}>{copy}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
-      <section className="rounded-2xl border border-blue-200 bg-blue-50 p-8">
-        <h2 className="text-2xl font-semibold text-[#0A2540]">From Local Manufacturer → Global Supplier</h2>
-        <p className="mt-3 text-zinc-700">We turn export ambition into a disciplined system: market thesis, route-to-market, and commercial execution rhythm.</p>
-        <div className="mt-4 flex flex-wrap gap-3">
-          <Link href="/export-consulting/manufacturers" className="font-semibold text-[#0A2540]">
-            Manufacturers export framework →
+      {/* Framework */}
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          background: "#050505",
+        }}
+        className="max-w-site"
+      >
+        <h2 className="h2" style={{ color: "#fff", marginBottom: 16 }}>Local Manufacturer → Global Supplier</h2>
+        <p style={{ fontSize: 17, color: "rgba(255,255,255,0.55)", maxWidth: 520, marginBottom: 32 }}>
+          We turn export ambition into a disciplined system: market thesis, route-to-market, and commercial execution rhythm.
+        </p>
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+          <Link href="/export-consulting/manufacturers" className="btn-outline" style={{ fontSize: 13 }}>
+            Manufacturers Export Framework →
           </Link>
-          <Link href="/export-consulting/usa-market-entry" className="font-semibold text-[#0A2540]">
-            USA market entry guide →
+          <Link href="/export-consulting/usa-market-entry" className="btn-outline" style={{ fontSize: 13 }}>
+            USA Market Entry Guide →
           </Link>
         </div>
       </section>
 
       <FaqSection faqs={faqs} />
 
-      <section className="rounded-2xl bg-[#0A2540] p-8 text-white">
-        <h2 className="text-2xl font-semibold">Get Export Plan</h2>
-        <p className="mt-2 text-blue-100">Book a strategy call for a practical market-entry roadmap.</p>
-        <Link href="/contact" className="mt-4 inline-block rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#0A2540]">
-          Book Strategy Call
-        </Link>
+      {/* CTA */}
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          background: "#000",
+          borderTop: "1px solid rgba(255,255,255,0.06)",
+        }}
+        className="max-w-site"
+      >
+        <h2 className="h2" style={{ color: "#fff", marginBottom: 16 }}>Get Your Export Plan</h2>
+        <p style={{ fontSize: 17, color: "rgba(255,255,255,0.55)", marginBottom: 32, maxWidth: 440 }}>
+          Book a strategy call for a practical market-entry roadmap tailored to your product and target market.
+        </p>
+        <Link href="/contact" className="btn-primary">Book Strategy Call →</Link>
       </section>
     </div>
   );

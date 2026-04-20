@@ -26,7 +26,7 @@ const faqs: FaqItem[] = [
 
 export default function ManufacturersExportPage() {
   return (
-    <div className="space-y-8">
+    <div >
       <SchemaScript
         data={[
           breadcrumbSchema([
@@ -37,21 +37,21 @@ export default function ManufacturersExportPage() {
           faqSchema(faqs),
         ]}
       />
-      <section className="rounded-2xl bg-white p-8">
-        <h1 className="text-4xl font-bold text-[#0A2540]">Export Consulting for Manufacturers</h1>
-        <p className="mt-3 text-zinc-700">Designed for CEOs, CFOs, and export managers building repeatable global sales systems.</p>
+      <section style={{ paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }} className="max-w-site">
+        <h1 className="h1" style={{ color: "#fff", maxWidth: 720, marginBottom: 16 }}>Export Consulting for Manufacturers</h1>
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", maxWidth: 540 }}>Designed for CEOs, CFOs, and export managers building repeatable global sales systems.</p>
       </section>
-      <section className="rounded-2xl border border-zinc-200 bg-white p-8">
-        <h2 className="text-2xl font-semibold text-zinc-900">Execution Blueprint</h2>
-        <ol className="mt-4 list-decimal space-y-2 pl-5 text-zinc-700">
-          <li>Country and segment prioritization based on margin potential</li>
-          <li>Distributor engine with outreach scripts and qualification gates</li>
-          <li>Export offer architecture (SKU, pricing, terms, compliance)</li>
-          <li>Weekly pipeline governance and conversion KPI tracking</li>
+      <section className="card" style={{ padding: "clamp(28px,4vw,48px)", marginBlock: "clamp(40px,6vw,80px)" }}>
+        <h2 style={{ fontSize: 24, fontWeight: 700, color: "#fff", marginBottom: 16 }}>Execution Blueprint</h2>
+        <ol style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 12, counterReset: "item" }}>
+          <li style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", paddingLeft: 0, display: "flex", gap: 10 }}><span style={{ color: "#a100ff" }}>→</span>Country and segment prioritization based on margin potential</li>
+          <li style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", paddingLeft: 0, display: "flex", gap: 10 }}><span style={{ color: "#a100ff" }}>→</span>Distributor engine with outreach scripts and qualification gates</li>
+          <li style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", paddingLeft: 0, display: "flex", gap: 10 }}><span style={{ color: "#a100ff" }}>→</span>Export offer architecture (SKU, pricing, terms, compliance)</li>
+          <li style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", paddingLeft: 0, display: "flex", gap: 10 }}><span style={{ color: "#a100ff" }}>→</span>Weekly pipeline governance and conversion KPI tracking</li>
         </ol>
       </section>
-      <p className="text-sm text-zinc-700">
-        Also explore <Link href="/export-consulting/usa-market-entry" className="font-semibold text-[#0A2540]">USA market entry consulting</Link> and our <Link href="/case-studies" className="font-semibold text-[#0A2540]">case studies</Link>.
+      <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", marginTop: 16 }}>
+        Also explore <Link href="/export-consulting/usa-market-entry" className="btn-outline" style={{ fontSize: 13, marginTop: 8 }}>USA market entry consulting</Link> and our <Link href="/case-studies" className="btn-outline" style={{ fontSize: 13, marginTop: 8 }}>case studies</Link>.
       </p>
       <FaqSection faqs={faqs} />
     </div>

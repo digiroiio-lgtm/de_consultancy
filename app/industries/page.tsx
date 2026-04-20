@@ -26,7 +26,7 @@ const faqs: FaqItem[] = [
 
 export default function IndustriesPage() {
   return (
-    <div className="space-y-8">
+    <div>
       <SchemaScript
         data={[
           breadcrumbSchema([
@@ -36,21 +36,52 @@ export default function IndustriesPage() {
           faqSchema(faqs),
         ]}
       />
-      <section className="rounded-2xl bg-white p-8">
-        <h1 className="text-4xl font-bold text-[#0A2540]">Industries</h1>
-        <p className="mt-3 text-zinc-700">Specialized consulting for manufacturing sectors where execution precision matters.</p>
+
+      <section
+        style={{
+          paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+        }}
+        className="max-w-site"
+      >
+        <p className="label" style={{ marginBottom: 20 }}>Industries</p>
+        <h1 className="h1" style={{ color: "#fff", maxWidth: 640, marginBottom: 24 }}>
+          Industries We Serve
+        </h1>
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", maxWidth: 480 }}>
+          Specialized consulting for manufacturing sectors where execution precision matters.
+        </p>
       </section>
-      <section className="grid gap-4 md:grid-cols-3">
-        {industries.map((industry) => (
-          <article key={industry.slug} className="rounded-xl border border-zinc-200 bg-white p-6">
-            <h2 className="text-lg font-semibold text-zinc-900">{industry.name}</h2>
-            <p className="mt-2 text-sm text-zinc-700">Pain points, solutions, and case examples tailored to your sector.</p>
-            <Link href={`/industries/${industry.slug}`} className="mt-4 inline-block text-sm font-semibold text-[#0A2540]">
-              View industry page →
-            </Link>
-          </article>
-        ))}
+
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+        className="max-w-site"
+      >
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+          {industries.map((industry) => (
+            <article key={industry.slug} className="card" style={{ padding: "32px 28px" }}>
+              <h2 style={{ fontSize: 19, fontWeight: 700, color: "#fff", marginBottom: 12, letterSpacing: "-0.01em" }}>
+                {industry.name}
+              </h2>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", marginBottom: 20, lineHeight: 1.65 }}>
+                Pain points, solutions, and case examples tailored to your sector.
+              </p>
+              <Link
+                href={`/industries/${industry.slug}`}
+                style={{ fontSize: 13, fontWeight: 700, color: "#a100ff", textDecoration: "none" }}
+              >
+                View industry page →
+              </Link>
+            </article>
+          ))}
+        </div>
       </section>
+
       <FaqSection faqs={faqs} />
     </div>
   );

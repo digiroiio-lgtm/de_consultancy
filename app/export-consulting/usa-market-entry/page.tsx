@@ -26,7 +26,7 @@ const faqs: FaqItem[] = [
 
 export default function UsaMarketEntryPage() {
   return (
-    <div className="space-y-8">
+    <div >
       <SchemaScript
         data={[
           breadcrumbSchema([
@@ -37,25 +37,25 @@ export default function UsaMarketEntryPage() {
           faqSchema(faqs),
         ]}
       />
-      <section className="rounded-2xl bg-white p-8">
-        <h1 className="text-4xl font-bold text-[#0A2540]">USA Market Entry for Turkish Manufacturers</h1>
-        <p className="mt-3 text-zinc-700">A practical route from factory floor to signed US distributor contracts.</p>
+      <section style={{ paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid rgba(255,255,255,0.08)" }} className="max-w-site">
+        <h1 className="h1" style={{ color: "#fff", maxWidth: 720, marginBottom: 16 }}>USA Market Entry for Turkish Manufacturers</h1>
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", maxWidth: 540 }}>A practical route from factory floor to signed US distributor contracts.</p>
       </section>
-      <section className="grid gap-4 md:grid-cols-2">
+      <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
         {[
           ["Market Prioritization", "Focus on states and segments where your value proposition is strongest."],
           ["Distributor Qualification", "Select partners with channel fit, financial stability, and execution capacity."],
           ["Export Pricing", "Build margin-safe pricing across duties, logistics, and rebates."],
           ["Compliance", "Prepare labeling, product documentation, and customs readiness."],
         ].map(([title, copy]) => (
-          <article key={title} className="rounded-xl border border-zinc-200 bg-white p-6">
-            <h2 className="text-xl font-semibold text-zinc-900">{title}</h2>
-            <p className="mt-2 text-zinc-700">{copy}</p>
+          <article key={title} className="card" style={{ padding: "28px 28px" }}>
+            <h2 style={{ fontSize: 17, fontWeight: 700, color: "#fff", marginBottom: 10, letterSpacing: "-0.01em" }}>{title}</h2>
+            <p style={{ fontSize: 15, color: "rgba(255,255,255,0.55)", lineHeight: 1.65 }}>{copy}</p>
           </article>
         ))}
       </section>
-      <p className="text-sm text-zinc-700">
-        Need a roadmap? <Link href="/contact" className="font-semibold text-[#0A2540]">Book Strategy Call</Link>.
+      <p style={{ fontSize: 14, color: "rgba(255,255,255,0.45)", marginTop: 16 }}>
+        Need a roadmap? <Link href="/contact" className="btn-outline" style={{ fontSize: 13, marginTop: 8 }}>Book Strategy Call</Link>.
       </p>
       <FaqSection faqs={faqs} />
     </div>

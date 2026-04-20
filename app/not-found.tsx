@@ -8,32 +8,73 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="mx-auto max-w-2xl py-24 text-center">
-      <p className="text-sm font-semibold uppercase tracking-widest text-[#0A2540]">404</p>
-      <h1 className="mt-4 text-4xl font-bold text-zinc-900">Page not found</h1>
-      <p className="mt-4 text-zinc-600">
+    <div
+      style={{
+        minHeight: "100svh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "clamp(40px,8vw,120px) clamp(24px,5vw,80px)",
+        textAlign: "center",
+        background: "#000",
+      }}
+    >
+      <p
+        style={{
+          fontSize: 11,
+          fontWeight: 700,
+          letterSpacing: "0.25em",
+          textTransform: "uppercase",
+          color: "#a100ff",
+          marginBottom: 24,
+        }}
+      >
+        404
+      </p>
+      <h1
+        style={{
+          fontSize: "clamp(40px,7vw,80px)",
+          fontWeight: 800,
+          letterSpacing: "-0.03em",
+          color: "#fff",
+          lineHeight: 1.05,
+          marginBottom: 20,
+        }}
+      >
+        Page not found
+      </h1>
+      <p style={{ fontSize: 17, color: "rgba(255,255,255,0.5)", maxWidth: 400, marginBottom: 40, lineHeight: 1.65 }}>
         The page you&apos;re looking for doesn&apos;t exist or may have moved.
       </p>
-      <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-        <Link
-          href="/"
-          className="rounded-full bg-[#0A2540] px-6 py-3 text-sm font-semibold text-white"
-        >
-          Go to homepage
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 16, justifyContent: "center", marginBottom: 56 }}>
+        <Link href="/" className="btn-primary">
+          Go to Homepage →
         </Link>
-        <Link
-          href="/contact"
-          className="rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-800"
-        >
+        <Link href="/contact" className="btn-outline">
           Book Strategy Call
         </Link>
       </div>
-      <nav className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-zinc-600">
-        <Link href="/management-consulting" className="hover:text-[#0A2540]">Management Consulting</Link>
-        <Link href="/export-consulting" className="hover:text-[#0A2540]">Export Consulting</Link>
-        <Link href="/industries" className="hover:text-[#0A2540]">Industries</Link>
-        <Link href="/case-studies" className="hover:text-[#0A2540]">Case Studies</Link>
-        <Link href="/about" className="hover:text-[#0A2540]">About</Link>
+      <nav style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "8px 32px" }}>
+        {[
+          { href: "/management-consulting", label: "Management Consulting" },
+          { href: "/export-consulting", label: "Export Consulting" },
+          { href: "/industries", label: "Industries" },
+          { href: "/case-studies", label: "Case Studies" },
+          { href: "/about", label: "About" },
+        ].map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            style={{
+              fontSize: 13,
+              color: "rgba(255,255,255,0.4)",
+              textDecoration: "none",
+            }}
+          >
+            {link.label}
+          </Link>
+        ))}
       </nav>
     </div>
   );

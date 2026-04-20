@@ -21,7 +21,7 @@ const faqs: FaqItem[] = [
 
 export default function CaseStudiesPage() {
   return (
-    <div className="space-y-8">
+    <div>
       <SchemaScript
         data={[
           breadcrumbSchema([
@@ -31,11 +31,35 @@ export default function CaseStudiesPage() {
           faqSchema(faqs),
         ]}
       />
-      <section className="rounded-2xl bg-white p-8">
-        <h1 className="text-4xl font-bold text-[#0A2540]">Case Studies</h1>
-        <p className="mt-3 text-zinc-700">Problem. Action. Result. With numbers decision makers can trust.</p>
+
+      <section
+        style={{
+          paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+        }}
+        className="max-w-site"
+      >
+        <p className="label" style={{ marginBottom: 20 }}>What We Think</p>
+        <h1 className="h1" style={{ color: "#fff", maxWidth: 640, marginBottom: 24 }}>
+          Case Studies
+        </h1>
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", maxWidth: 480 }}>
+          Problem. Action. Result. With numbers decision makers can trust.
+        </p>
       </section>
-      <CaseStudyFilter studies={caseStudies} />
+
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+        className="max-w-site"
+      >
+        <CaseStudyFilter studies={caseStudies} />
+      </section>
+
       <FaqSection faqs={faqs} />
     </div>
   );

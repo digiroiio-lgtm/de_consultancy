@@ -9,11 +9,11 @@ import { company } from "./lib/content";
 export const metadata: Metadata = {
   metadataBase: new URL(company.url),
   title: {
-    default: "DE Consultancy | Management & Export Consulting for Manufacturers",
-    template: "%s | DE Consultancy",
+    default: "Growtura Global | Management & Export Consulting",
+    template: "%s | Growtura Global",
   },
   description:
-    "Management consulting and export consulting for manufacturers. We increase profitability, build export systems, and accelerate global expansion.",
+    "Enterprise management consulting and export consulting for manufacturers. We increase profitability, build export systems, and accelerate global expansion.",
   alternates: {
     canonical: "/",
   },
@@ -29,7 +29,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full bg-[#F6F8FB] text-zinc-900">
+      <body className="min-h-full bg-black text-white">
         {validGa4Id ? (
           <>
             <Script src={`https://www.googletagmanager.com/gtag/js?id=${validGa4Id}`} strategy="afterInteractive" />
@@ -39,7 +39,7 @@ export default function RootLayout({
           </>
         ) : null}
         <SiteHeader />
-        <main className="mx-auto w-full max-w-6xl px-6 py-10">{children}</main>
+        <main>{children}</main>
         <SiteFooter />
         <StickyCta />
       </body>

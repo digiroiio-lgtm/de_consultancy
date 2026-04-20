@@ -24,9 +24,16 @@ const faqs: FaqItem[] = [
   },
 ];
 
+const optimizations = [
+  "Direct and indirect procurement categories",
+  "Waste and yield losses on production lines",
+  "Discount leakage and pricing inconsistency",
+  "Inventory carrying costs and slow-moving stock",
+];
+
 export default function CostReductionPage() {
   return (
-    <div className="space-y-8">
+    <div>
       <SchemaScript
         data={[
           breadcrumbSchema([
@@ -36,22 +43,48 @@ export default function CostReductionPage() {
           faqSchema(faqs),
         ]}
       />
-      <section className="rounded-2xl bg-white p-8">
-        <h1 className="text-4xl font-bold text-[#0A2540]">Cost Reduction Consulting for Manufacturers</h1>
-        <p className="mt-3 text-zinc-700">Reduce operational costs without sacrificing quality, service levels, or growth capacity.</p>
+
+      <section
+        style={{
+          paddingBlock: "clamp(120px,14vw,200px) clamp(80px,10vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.08)",
+        }}
+        className="max-w-site"
+      >
+        <p className="label" style={{ marginBottom: 20 }}>Cost Reduction</p>
+        <h1 className="h1" style={{ color: "#fff", maxWidth: 680, marginBottom: 24 }}>
+          Cost Reduction Consulting for Manufacturers
+        </h1>
+        <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", maxWidth: 520, marginBottom: 40 }}>
+          Reduce operational costs without sacrificing quality, service levels, or growth capacity.
+        </p>
+        <Link href="/contact" className="btn-primary">Free Cost Analysis →</Link>
       </section>
-      <section className="rounded-2xl border border-zinc-200 bg-white p-8">
-        <h2 className="text-2xl font-semibold text-zinc-900">What We Optimize</h2>
-        <ul className="mt-4 list-disc space-y-2 pl-5 text-zinc-700">
-          <li>Direct and indirect procurement categories</li>
-          <li>Waste and yield losses on production lines</li>
-          <li>Discount leakage and pricing inconsistency</li>
-          <li>Inventory carrying costs and slow-moving stock</li>
-        </ul>
+
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderBottom: "1px solid rgba(255,255,255,0.06)",
+        }}
+        className="max-w-site"
+      >
+        <h2 className="h2" style={{ color: "#fff", marginBottom: 32 }}>What We Optimize</h2>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 640 }}>
+          {optimizations.map((item) => (
+            <div
+              key={item}
+              className="card"
+              style={{ padding: "20px 24px", display: "flex", alignItems: "center", gap: 16 }}
+            >
+              <span style={{ color: "#a100ff", fontSize: 18, flexShrink: 0 }}>↑</span>
+              <p style={{ fontSize: 16, color: "rgba(255,255,255,0.75)" }}>{item}</p>
+            </div>
+          ))}
+        </div>
       </section>
-      <Link href="/contact" className="inline-block rounded-full bg-[#0A2540] px-6 py-3 text-sm font-semibold text-white">
-        Free Cost Analysis
-      </Link>
+
       <FaqSection faqs={faqs} />
     </div>
   );
