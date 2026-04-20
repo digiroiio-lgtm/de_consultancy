@@ -153,7 +153,7 @@ export function SiteHeader() {
       {/* Mobile menu drawer */}
       <div
         ref={menuRef}
-        className="md:hidden"
+        className="flex md:hidden"
         style={{
           position: "fixed",
           top: 0,
@@ -162,7 +162,6 @@ export function SiteHeader() {
           bottom: 0,
           background: "var(--bg)",
           zIndex: 49,
-          display: "flex",
           flexDirection: "column",
           justifyContent: "center",
           padding: "0 40px",

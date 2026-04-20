@@ -98,7 +98,7 @@ export default function AboutPage() {
       >
         <p className="label" style={{ marginBottom: 16 }}>Our Principles</p>
         <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(32px,4vw,56px)" }}>How We Work</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))", gap: 20 }}>
           {values.map((v) => (
             <article key={v.title} className="card" style={{ padding: "28px 28px" }}>
               <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--fg)", marginBottom: 10, letterSpacing: "-0.01em" }}>

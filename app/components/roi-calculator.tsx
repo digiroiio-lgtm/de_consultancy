@@ -27,9 +27,8 @@ export function RoiCalculator() {
         </p>
 
         <div
+          className="two-col-grid"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
             gap: "clamp(40px,6vw,80px)",
             alignItems: "center",
           }}
@@ -104,14 +103,6 @@ export function RoiCalculator() {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          section > div > div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

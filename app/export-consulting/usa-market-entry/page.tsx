@@ -41,7 +41,7 @@ export default function UsaMarketEntryPage() {
         <h1 className="h1" style={{ color: "var(--fg)", maxWidth: 720, marginBottom: 16 }}>USA Market Entry for Turkish Manufacturers</h1>
         <p className="body-lg" style={{ color: "var(--muted)", maxWidth: 540 }}>A practical route from factory floor to signed US distributor contracts.</p>
       </section>
-      <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+      <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))", gap: 20 }}>
         {[
           ["Market Prioritization", "Focus on states and segments where your value proposition is strongest."],
           ["Distributor Qualification", "Select partners with channel fit, financial stability, and execution capacity."],

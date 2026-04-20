@@ -84,7 +84,7 @@ a { text-underline-offset: 3px; }
 
 /* ─── Typography scale ──────────────────────────────────────── */
 .h1 {
-  font-size: clamp(52px, 8vw, 96px);
+  font-size: clamp(40px, 8vw, 96px);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.03em;
@@ -254,7 +254,7 @@ a { text-underline-offset: 3px; }
 }
 .pill:hover, .pill.active {
   border-color: var(--accent);
-  color: #fff;
+  color: var(--fg);
   background: rgba(161,0,255,0.1);
 }
 
@@ -331,3 +331,22 @@ input[type="range"]::-moz-range-thumb {
 .max-w-site { max-width: 1280px; margin-inline: auto; }
 .section-pad { padding-block: clamp(80px, 10vw, 160px); padding-inline: clamp(24px, 5vw, 80px); }
 .section-pad-sm { padding-block: clamp(48px, 6vw, 80px); padding-inline: clamp(24px, 5vw, 80px); }
+
+/* ─── Responsive 2-col grid ─────────────────────────────────── */
+/* 2 columns on ≥ 769px, single column on mobile */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .two-col-grid { grid-template-columns: 1fr; }
+}
+
+/* Hero 2-col — same breakpoint, kept separate for naming clarity */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}

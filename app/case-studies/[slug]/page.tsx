@@ -82,7 +82,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         }}
         className="max-w-site"
       >
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))", gap: 20 }}>
           {[
             { label: "Problem", content: study.problem },
             { label: "Action", content: study.action },

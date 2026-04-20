@@ -28,7 +28,7 @@ export function StickyCta() {
           display: "inline-flex",
           alignItems: "center",
           gap: 8,
-          background: "var(--card-bg, rgba(0,0,0,0.85))",
+          background: "var(--card-bg)",
           border: "1px solid var(--border)",
           color: "var(--fg)",
           fontSize: 13,

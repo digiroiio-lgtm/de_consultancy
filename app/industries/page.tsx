@@ -62,7 +62,7 @@ export default function IndustriesPage() {
         }}
         className="max-w-site"
       >
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))", gap: 20 }}>
           {industries.map((industry) => (
             <article key={industry.slug} className="card" style={{ padding: "32px 28px" }}>
               <h2 style={{ fontSize: 19, fontWeight: 700, color: "var(--fg)", marginBottom: 12, letterSpacing: "-0.01em" }}>

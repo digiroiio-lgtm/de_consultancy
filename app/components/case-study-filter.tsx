@@ -31,7 +31,7 @@ export function CaseStudyFilter({ studies }: { studies: CaseStudy[] }) {
           </button>
         ))}
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 20 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(300px, 100%), 1fr))", gap: 20 }}>
         {visible.map((study) => (
           <article key={study.slug} className="card" style={{ padding: "28px 28px" }}>
             <p

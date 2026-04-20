@@ -87,7 +87,7 @@ export default function ExportConsultingPage() {
         className="max-w-site">
         <p className="label" style={{ marginBottom: 16 }}>Capabilities</p>
         <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(32px,4vw,56px)" }}>What We Do</h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(280px, 100%), 1fr))", gap: 20 }}>
           {capabilities.map(([title, copy]) => (
             <article key={title} className="card" style={{ padding: "28px 28px" }}>
               <h3 style={{ fontSize: 17, fontWeight: 700, color: "var(--fg)", marginBottom: 10, letterSpacing: "-0.01em" }}>{title}</h3>

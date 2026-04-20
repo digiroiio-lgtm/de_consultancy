@@ -138,14 +138,12 @@ export function HeroSection() {
 
       {/* Content */}
       <div
-        className="max-w-site"
+        className="max-w-site hero-grid"
         style={{
           position: "relative",
           zIndex: 2,
           width: "100%",
-          padding: "120px clamp(24px,5vw,80px) 80px",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          padding: "clamp(100px,14vw,120px) clamp(24px,5vw,80px) 80px",
           gap: "clamp(40px,6vw,100px)",
           alignItems: "center",
         }}
@@ -244,7 +242,7 @@ export function HeroSection() {
           style={{
             width: 1,
             height: 48,
-            background: "linear-gradient(to bottom, #fff, transparent)",
+            background: "linear-gradient(to bottom, var(--fg), transparent)",
             animation: "scrollPulse 2s ease-in-out infinite",
           }}
         />
@@ -253,21 +251,8 @@ export function HeroSection() {
             0%, 100% { opacity: 0.4; transform: scaleY(1); }
             50% { opacity: 0.8; transform: scaleY(1.2); }
           }
-          @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: 1fr !important; }
-          }
         `}</style>
       </div>
-
-      {/* Responsive override */}
-      <style>{`
-        @media (max-width: 768px) {
-          section > div[style*="grid-template-columns: 1fr 1fr"] {
-            grid-template-columns: 1fr !important;
-            padding-top: 100px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
