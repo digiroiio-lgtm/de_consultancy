@@ -116,10 +116,10 @@ export default function TrHomePage() {
         </p>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
           <Link href="/tr/iletisim" className="btn-primary">
-            Strateji Görüşmesi Ayırtın →
+            Strateji Görüşmesi Planlayın →
           </Link>
           <Link href="/tr/hakkimizda" className="btn-outline">
-            Bizi Tanıyın
+            Büyüme Planınızı Oluşturalım →
           </Link>
         </div>
       </section>
@@ -217,13 +217,13 @@ export default function TrHomePage() {
         className="max-w-site"
       >
         <h2 className="h2" style={{ color: "var(--fg)", maxWidth: 600, marginBottom: 16 }}>
-          Ücretsiz Strateji Görüşmesi
+          Strateji Görüşmesi Planlayın
         </h2>
         <p style={{ fontSize: 17, color: "var(--muted)", maxWidth: 480, marginBottom: 32 }}>
           Hedefinizi paylaşın, 90 günlük odaklı bir aksiyon planıyla geri dönelim — genel slaytlar değil.
         </p>
         <Link href="/tr/iletisim" className="btn-primary">
-          Görüşme Ayırtın →
+          Strateji Görüşmesi Planlayın
         </Link>
       </section>
 

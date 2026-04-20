@@ -142,7 +142,7 @@ export default function TrExportConsultingPage() {
         <p style={{ fontSize: 17, color: "var(--muted)", marginBottom: 32, maxWidth: 440 }}>
           Ürününüze ve hedef pazarınıza özel pratik bir pazar giriş yol haritası için strateji görüşmesi ayırtın.
         </p>
-        <Link href="/tr/iletisim" className="btn-primary">Strateji Görüşmesi Ayırtın →</Link>
+        <Link href="/tr/iletisim" className="btn-primary">Strateji Görüşmesi Planlayın →</Link>
       </section>
     </div>
   );

@@ -61,7 +61,7 @@ export default function TrCostReductionPage() {
         <p className="body-lg" style={{ color: "var(--muted)", maxWidth: 520, marginBottom: 40 }}>
           Kalite, hizmet düzeyleri veya büyüme kapasitesinden ödün vermeden operasyonel maliyetleri azaltın.
         </p>
-        <Link href="/tr/iletisim" className="btn-primary">Ücretsiz Maliyet Analizi →</Link>
+        <Link href="/tr/iletisim" className="btn-primary">Tasarruf Planımı Gör →</Link>
       </section>
 
       <section
@@ -99,11 +99,11 @@ export default function TrCostReductionPage() {
         }}
         className="max-w-site"
       >
-        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 16 }}>Ücretsiz Maliyet Analizi</h2>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 16 }}>Maliyet Yapınızı Analiz Edelim</h2>
         <p style={{ fontSize: 17, color: "var(--muted)", marginBottom: 32, maxWidth: 440 }}>
           Mevcut verilerinizi paylaşın, en önemli 3 maliyet iyileştirme fırsatınızı haritalayalım.
         </p>
-        <Link href="/tr/iletisim" className="btn-primary">Strateji Görüşmesi Ayırtın →</Link>
+        <Link href="/tr/iletisim" className="btn-primary">Strateji Görüşmesi Planlayın →</Link>
       </section>
     </div>
   );

@@ -133,7 +133,7 @@ export default function TrAboutPage() {
           Hedefinizi paylaşın, 90 günlük odaklı bir aksiyon planıyla geri dönelim.
         </p>
         <Link href="/tr/iletisim" className="btn-primary">
-          Strateji Görüşmesi Ayırtın →
+          Strateji Görüşmesi Planlayın →
         </Link>
       </section>
 

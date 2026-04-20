@@ -47,7 +47,7 @@ export default function TrContactPage() {
       >
         <p className="label" style={{ marginBottom: 20 }}>İletişime Geçin</p>
         <h1 className="h1" style={{ color: "var(--fg)", maxWidth: 640, marginBottom: 24 }}>
-          Strateji Görüşmesi Ayırtın
+          Strateji Görüşmesi Planlayın
         </h1>
         <p className="body-lg" style={{ color: "var(--muted)", maxWidth: 480 }}>
           Hedefinizi paylaşın, 90 günlük odaklı bir aksiyon planıyla geri dönelim — genel slaytlar değil.

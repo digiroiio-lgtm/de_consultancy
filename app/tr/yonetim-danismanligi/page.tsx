@@ -85,7 +85,7 @@ export default function TrManagementConsultingPage() {
           Üretim liderlik ekiplerine marjı, kontrolü ve uygulama hızını iyileştiriyoruz — aylar değil, haftalar içinde sonuçlar sunuyoruz.
         </p>
         <Link href="/tr/iletisim" className="btn-primary">
-          Strateji Görüşmesi Ayırtın →
+          Strateji Görüşmesi Planlayın →
         </Link>
       </section>
 
@@ -145,8 +145,8 @@ export default function TrManagementConsultingPage() {
           Mevcut verilerinizi paylaşın, en önemli 3 marj iyileştirme fırsatınızı haritalayalım.
         </p>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-          <Link href="/tr/iletisim" className="btn-primary">Strateji Görüşmesi Ayırtın →</Link>
-          <Link href="/tr/maliyet-optimizasyonu" className="btn-outline">Ücretsiz Maliyet Analizi</Link>
+          <Link href="/tr/iletisim" className="btn-primary">Strateji Görüşmesi Planlayın →</Link>
+          <Link href="/tr/maliyet-optimizasyonu" className="btn-outline">Maliyet Yapınızı Analiz Edelim</Link>
         </div>
       </section>
     </div>
