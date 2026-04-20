@@ -210,14 +210,14 @@ export function HeroSection() {
             className="body-md"
             style={{ color: "rgba(255,255,255,0.5)", maxWidth: 400 }}
           >
-            Manufacturers in packaging, food production, and industrial sectors trust Growtura Global to turn operational complexity into competitive advantage.
+            Manufacturers in packaging, food production, and industrial sectors trust Advisera Global to turn operational complexity into competitive advantage.
           </p>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
             <Link href="/contact" className="btn-primary">
               Book Strategy Call →
             </Link>
-            <a href={company.whatsapp} className="btn-outline">
-              WhatsApp Us
+            <a href={`mailto:${company.email}`} className="btn-outline">
+              Email Us
             </a>
           </div>
         </div>

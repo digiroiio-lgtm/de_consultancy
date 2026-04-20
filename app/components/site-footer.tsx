@@ -12,10 +12,10 @@ const footerLinks = {
     { label: "Case Studies", href: "/case-studies" },
     { label: "Contact", href: "/contact" },
   ],
-  "Connect": [
-    { label: "Book Strategy Call", href: "/contact" },
-    { label: "WhatsApp", href: company.whatsapp },
-    { label: company.email, href: `mailto:${company.email}` },
+  "Legal": [
+    { label: "Privacy Policy", href: "/legal/privacy-policy" },
+    { label: "Terms & Conditions", href: "/legal/terms-and-conditions" },
+    { label: "Cookie Policy", href: "/legal/cookie-policy" },
   ],
 };
 
@@ -23,8 +23,8 @@ export function SiteFooter() {
   return (
     <footer
       style={{
-        background: "#000",
-        borderTop: "1px solid rgba(255,255,255,0.08)",
+        background: "var(--bg)",
+        borderTop: "1px solid var(--border)",
         paddingBlock: "clamp(64px,8vw,120px)",
         position: "relative",
         overflow: "hidden",
@@ -48,7 +48,7 @@ export function SiteFooter() {
                 fontSize: 22,
                 fontWeight: 800,
                 letterSpacing: "-0.03em",
-                color: "#fff",
+                color: "var(--fg)",
                 textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
@@ -57,14 +57,32 @@ export function SiteFooter() {
               }}
             >
               <span style={{ color: "#a100ff" }}>▲</span>
-              Growtura Global
+              Advisera Global
             </Link>
-            <p style={{ fontSize: 14, color: "rgba(255,255,255,0.4)", lineHeight: 1.7, maxWidth: 240 }}>
+            <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.7, maxWidth: 240 }}>
               Enterprise management and export consulting for manufacturers who demand measurable results.
             </p>
-            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.3)", marginTop: 20 }}>
-              {company.phone}
-            </p>
+            <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 6 }}>
+              <a
+                href={`mailto:${company.email}`}
+                style={{ fontSize: 13, color: "var(--muted)", textDecoration: "none" }}
+              >
+                {company.email}
+              </a>
+              <address
+                style={{
+                  fontSize: 12,
+                  color: "var(--muted)",
+                  fontStyle: "normal",
+                  lineHeight: 1.6,
+                  opacity: 0.7,
+                }}
+              >
+                {company.address.street}<br />
+                {company.address.city}, {company.address.state} {company.address.zip}<br />
+                {company.address.country}
+              </address>
+            </div>
           </div>
 
           {/* Link columns */}
@@ -76,8 +94,9 @@ export function SiteFooter() {
                   fontWeight: 700,
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.35)",
+                  color: "var(--muted)",
                   marginBottom: 20,
+                  opacity: 0.6,
                 }}
               >
                 {group}
@@ -89,7 +108,7 @@ export function SiteFooter() {
                       href={link.href}
                       style={{
                         fontSize: 14,
-                        color: "rgba(255,255,255,0.55)",
+                        color: "var(--muted)",
                         textDecoration: "none",
                       }}
                     >
@@ -111,19 +130,19 @@ export function SiteFooter() {
             letterSpacing: "-0.06em",
             lineHeight: 0.85,
             color: "transparent",
-            WebkitTextStroke: "1px rgba(255,255,255,0.06)",
+            WebkitTextStroke: "1px var(--border)",
             userSelect: "none",
             marginBottom: 48,
             overflow: "hidden",
           }}
         >
-          GROWTURA
+          ADVISERA
         </div>
 
         {/* Bottom bar */}
         <div
           style={{
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid var(--border)",
             paddingTop: 24,
             display: "flex",
             alignItems: "center",
@@ -132,12 +151,20 @@ export function SiteFooter() {
             flexWrap: "wrap",
           }}
         >
-          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.3)" }}>
-            © {new Date().getFullYear()} Growtura Global. All rights reserved.
+          <p style={{ fontSize: 13, color: "var(--muted)", opacity: 0.6 }}>
+            © {new Date().getFullYear()} Advisera Global. All rights reserved.
           </p>
-          <p style={{ fontSize: 13, color: "rgba(255,255,255,0.3)" }}>
-            Management &amp; Export Consulting
-          </p>
+          <div style={{ display: "flex", gap: 24 }}>
+            <Link href="/legal/privacy-policy" style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", opacity: 0.6 }}>
+              Privacy
+            </Link>
+            <Link href="/legal/terms-and-conditions" style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", opacity: 0.6 }}>
+              Terms
+            </Link>
+            <Link href="/legal/cookie-policy" style={{ fontSize: 12, color: "var(--muted)", textDecoration: "none", opacity: 0.6 }}>
+              Cookies
+            </Link>
+          </div>
         </div>
       </div>
 

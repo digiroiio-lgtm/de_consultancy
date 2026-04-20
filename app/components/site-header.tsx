@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { ThemeToggle } from "./theme-toggle";
 
 const links = [
   { href: "/management-consulting", label: "What We Do" },
@@ -31,8 +32,8 @@ export function SiteHeader() {
       <header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          background: scrolled ? "rgba(0,0,0,0.92)" : "transparent",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "1px solid transparent",
+          background: scrolled ? "var(--header-bg-scrolled, rgba(0,0,0,0.92))" : "transparent",
+          borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
         }}
       >
@@ -48,7 +49,7 @@ export function SiteHeader() {
                 fontSize: 20,
                 fontWeight: 800,
                 letterSpacing: "-0.03em",
-                color: "#fff",
+                color: "var(--fg)",
                 textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
@@ -56,7 +57,7 @@ export function SiteHeader() {
               }}
             >
               <span style={{ color: "#a100ff" }}>▲</span>
-              Growtura Global
+              Advisera Global
             </Link>
 
             {/* Desktop nav */}
@@ -68,13 +69,13 @@ export function SiteHeader() {
                   style={{
                     fontSize: 14,
                     fontWeight: 500,
-                    color: "rgba(255,255,255,0.75)",
+                    color: "var(--muted)",
                     textDecoration: "none",
                     letterSpacing: "0.01em",
                     transition: "color 0.2s ease",
                   }}
-                  onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#fff")}
-                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.75)")}
+                  onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--fg)")}
+                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--muted)")}
                 >
                   {link.label}
                 </Link>
@@ -82,7 +83,8 @@ export function SiteHeader() {
             </nav>
 
             {/* Desktop right */}
-            <div style={{ display: "flex", alignItems: "center", gap: 16 }} className="hidden md:flex">
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }} className="hidden md:flex">
+              <ThemeToggle />
               <Link
                 href="/contact"
                 className="btn-primary"
@@ -92,55 +94,58 @@ export function SiteHeader() {
               </Link>
             </div>
 
-            {/* Hamburger */}
-            <button
-              className="md:hidden"
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-              onClick={() => setMenuOpen((v) => !v)}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: 8,
-                display: "flex",
-                flexDirection: "column",
-                gap: 5,
-              }}
-            >
-              <span
+            {/* Mobile right */}
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }} className="flex md:hidden">
+              <ThemeToggle />
+              {/* Hamburger */}
+              <button
+                aria-label={menuOpen ? "Close menu" : "Open menu"}
+                onClick={() => setMenuOpen((v) => !v)}
                 style={{
-                  display: "block",
-                  width: 24,
-                  height: 2,
-                  background: "#fff",
-                  borderRadius: 2,
-                  transition: "all 0.25s ease",
-                  transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  padding: 8,
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 5,
                 }}
-              />
-              <span
-                style={{
-                  display: "block",
-                  width: 24,
-                  height: 2,
-                  background: "#fff",
-                  borderRadius: 2,
-                  transition: "all 0.25s ease",
-                  opacity: menuOpen ? 0 : 1,
-                }}
-              />
-              <span
-                style={{
-                  display: "block",
-                  width: 24,
-                  height: 2,
-                  background: "#fff",
-                  borderRadius: 2,
-                  transition: "all 0.25s ease",
-                  transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none",
-                }}
-              />
-            </button>
+              >
+                <span
+                  style={{
+                    display: "block",
+                    width: 24,
+                    height: 2,
+                    background: "var(--fg)",
+                    borderRadius: 2,
+                    transition: "all 0.25s ease",
+                    transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none",
+                  }}
+                />
+                <span
+                  style={{
+                    display: "block",
+                    width: 24,
+                    height: 2,
+                    background: "var(--fg)",
+                    borderRadius: 2,
+                    transition: "all 0.25s ease",
+                    opacity: menuOpen ? 0 : 1,
+                  }}
+                />
+                <span
+                  style={{
+                    display: "block",
+                    width: 24,
+                    height: 2,
+                    background: "var(--fg)",
+                    borderRadius: 2,
+                    transition: "all 0.25s ease",
+                    transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none",
+                  }}
+                />
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -155,7 +160,7 @@ export function SiteHeader() {
           left: 0,
           right: 0,
           bottom: 0,
-          background: "#000",
+          background: "var(--bg)",
           zIndex: 49,
           display: "flex",
           flexDirection: "column",
@@ -177,7 +182,7 @@ export function SiteHeader() {
               fontSize: "clamp(28px,8vw,48px)",
               fontWeight: 700,
               letterSpacing: "-0.02em",
-              color: "#fff",
+              color: "var(--fg)",
               textDecoration: "none",
               opacity: menuOpen ? 1 : 0,
               transform: menuOpen ? "translateX(0)" : "translateX(40px)",

@@ -23,7 +23,7 @@ export function RoiCalculator() {
           Estimate Your Savings
         </h2>
         <p className="body-lg" style={{ color: "rgba(255,255,255,0.55)", marginBottom: "clamp(40px,5vw,64px)", maxWidth: 480 }}>
-          See how much cost reduction your business could achieve with Growtura Global.
+          See how much cost reduction your business could achieve with Advisera Global.
         </p>
 
         <div

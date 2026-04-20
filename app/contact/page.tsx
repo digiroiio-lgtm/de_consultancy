@@ -7,7 +7,7 @@ import { breadcrumbSchema, faqSchema } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Book your strategy call via form, WhatsApp, or Calendly.",
+  description: "Book your strategy call via form or email. Reach Advisera Global at info@adviseraglobal.com.",
   alternates: { canonical: "/contact" },
 };
 
@@ -71,9 +71,9 @@ export default function ContactPage() {
           <ContactMultistepForm />
 
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-            {/* WhatsApp */}
+            {/* Email */}
             <a
-              href={company.whatsapp}
+              href={`mailto:${company.email}`}
               className="card"
               style={{
                 padding: "28px 28px",
@@ -88,20 +88,22 @@ export default function ContactPage() {
                   width: 48,
                   height: 48,
                   borderRadius: 12,
-                  background: "rgba(37,211,102,0.1)",
-                  border: "1px solid rgba(37,211,102,0.2)",
+                  background: "rgba(161,0,255,0.1)",
+                  border: "1px solid rgba(161,0,255,0.2)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   flexShrink: 0,
-                  fontSize: 22,
                 }}
               >
-                💬
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a100ff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
               </div>
               <div>
-                <p style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 4 }}>WhatsApp</p>
-                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)" }}>Direct message — fastest response</p>
+                <p style={{ fontSize: 15, fontWeight: 700, color: "#fff", marginBottom: 4 }}>Email</p>
+                <p style={{ fontSize: 13, color: "rgba(255,255,255,0.45)" }}>{company.email}</p>
               </div>
             </a>
 

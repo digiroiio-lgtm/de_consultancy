@@ -25,8 +25,14 @@ export default function Home() {
       name: company.name,
       url: company.url,
       email: company.email,
-      telephone: company.phone,
-      sameAs: [company.whatsapp],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: company.address.street,
+        addressLocality: company.address.city,
+        addressRegion: company.address.state,
+        postalCode: company.address.zip,
+        addressCountry: company.address.country,
+      },
     },
     {
       "@context": "https://schema.org",

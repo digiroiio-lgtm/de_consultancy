@@ -46,7 +46,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "growtura-global@resend.dev",
+        from: "advisera-global@resend.dev",
         to: [toEmail],
         subject: `New strategy call lead: ${payload.company}`,
         text: `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company}\nService: ${payload.serviceInterest}\nGoal: ${payload.goal}`,

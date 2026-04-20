@@ -211,8 +211,8 @@ export function ContactMultistepForm() {
       {status === "error" && (
         <p style={{ marginTop: 20, fontSize: 14, color: "#ef4444" }}>
           {errorMessage}{" "}
-          <a href={company.whatsapp} style={{ color: "#a100ff", textDecoration: "underline" }}>
-            Contact us on WhatsApp.
+          <a href={`mailto:${company.email}`} style={{ color: "#a100ff", textDecoration: "underline" }}>
+            Email us directly.
           </a>
         </p>
       )}

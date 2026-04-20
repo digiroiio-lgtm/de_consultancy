@@ -5,7 +5,7 @@ import { FaqItem } from "../lib/content";
 import { breadcrumbSchema, faqSchema } from "../lib/schema";
 
 export const metadata: Metadata = {
-  title: "About Growtura Global",
+  title: "About Advisera Global",
   description: "Execution-driven consulting partner for manufacturers seeking measurable profitability and export growth.",
   alternates: { canonical: "/about" },
 };
@@ -77,7 +77,7 @@ export default function AboutPage() {
         />
         <p className="label" style={{ marginBottom: 20 }}>Who We Are</p>
         <h1 className="h1" style={{ color: "#fff", maxWidth: 680, marginBottom: 32 }}>
-          About Growtura Global
+          About Advisera Global
         </h1>
         <p className="body-lg" style={{ color: "rgba(255,255,255,0.6)", maxWidth: 620, marginBottom: 16 }}>
           Our founder built this firm to close the strategy-to-execution gap for manufacturers. We are operators first — every engagement is measured by realized EBITDA improvement, cash flow impact, and export revenue growth.

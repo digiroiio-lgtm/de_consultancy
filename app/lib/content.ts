@@ -12,20 +12,26 @@ export type CaseStudy = {
 };
 
 export const company = {
-  name: "Growtura Global",
+  name: "Advisera Global",
   description:
     "Management and export consulting partner for manufacturers focused on profitability, operations, and global expansion.",
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
     (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://set-site-url.example"),
-  phone: "+90 555 000 00 00",
-  email: "strategy@growturaglobal.com",
-  whatsapp: "https://wa.me/905550000000",
+  email: "info@adviseraglobal.com",
+  address: {
+    street: "145 W 55th St",
+    city: "New York",
+    state: "NY",
+    zip: "10019",
+    country: "USA",
+    full: "145 W 55th St, New York, NY 10019, USA",
+  },
 };
 
 export const coreFaqs: FaqItem[] = [
   {
-    question: "How is Growtura Global different from traditional consultants?",
+    question: "How is Advisera Global different from traditional consultants?",
     answer:
       "We are execution-led. We install systems, KPIs, and governance routines so measurable gains happen in weeks, not just slide decks in months.",
   },
