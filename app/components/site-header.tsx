@@ -61,7 +61,7 @@ export function SiteHeader() {
             </Link>
 
             {/* Desktop nav */}
-            <nav aria-label="Primary" style={{ display: "flex", alignItems: "center", gap: 40 }} className="hidden md:flex">
+            <nav aria-label="Primary" style={{ alignItems: "center", gap: 40 }} className="hidden md:flex">
               {links.map((link) => (
                 <Link
                   key={link.href}
@@ -83,7 +83,7 @@ export function SiteHeader() {
             </nav>
 
             {/* Desktop right */}
-            <div style={{ display: "flex", alignItems: "center", gap: 12 }} className="hidden md:flex">
+            <div style={{ alignItems: "center", gap: 12 }} className="hidden md:flex">
               <ThemeToggle />
               <Link
                 href="/contact"
@@ -95,7 +95,7 @@ export function SiteHeader() {
             </div>
 
             {/* Mobile right */}
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }} className="flex md:hidden">
+            <div style={{ alignItems: "center", gap: 10 }} className="flex md:hidden">
               <ThemeToggle />
               {/* Hamburger */}
               <button
