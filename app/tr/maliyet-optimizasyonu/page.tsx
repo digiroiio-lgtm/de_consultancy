@@ -87,7 +87,7 @@ export default function TrCostReductionPage() {
         </div>
       </section>
 
-      <FaqSection faqs={faqs} />
+      <FaqSection faqs={faqs} locale="tr" />
 
       {/* CTA */}
       <section

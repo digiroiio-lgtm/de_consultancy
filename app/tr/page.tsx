@@ -227,7 +227,7 @@ export default function TrHomePage() {
         </Link>
       </section>
 
-      <FaqSection faqs={trFaqs} />
+      <FaqSection faqs={trFaqs} locale="tr" />
     </>
   );
 }

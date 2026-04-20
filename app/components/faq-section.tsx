@@ -1,6 +1,10 @@
 import { FaqItem } from "../lib/content";
+import type { Locale } from "../lib/i18n";
 
-export function FaqSection({ faqs }: { faqs: FaqItem[] }) {
+export function FaqSection({ faqs, locale = "en" }: { faqs: FaqItem[]; locale?: Locale }) {
+  const label = locale === "tr" ? "SSS" : "FAQ";
+  const heading = locale === "tr" ? "Sıkça Sorulan Sorular" : "Frequently Asked Questions";
+
   return (
     <section
       style={{
@@ -10,9 +14,9 @@ export function FaqSection({ faqs }: { faqs: FaqItem[] }) {
       }}
     >
       <div className="max-w-site" style={{ paddingInline: "clamp(24px,5vw,80px)" }}>
-        <p className="label" style={{ marginBottom: 16 }}>FAQ</p>
+        <p className="label" style={{ marginBottom: 16 }}>{label}</p>
         <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(40px,5vw,64px)" }}>
-          Frequently Asked Questions
+          {heading}
         </h2>
         <div
           style={{

@@ -137,7 +137,7 @@ export default function TrAboutPage() {
         </Link>
       </section>
 
-      <FaqSection faqs={faqs} />
+      <FaqSection faqs={faqs} locale="tr" />
     </div>
   );
 }

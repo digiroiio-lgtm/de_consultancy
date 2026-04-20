@@ -126,7 +126,7 @@ export default function TrExportConsultingPage() {
         </div>
       </section>
 
-      <FaqSection faqs={faqs} />
+      <FaqSection faqs={faqs} locale="tr" />
 
       {/* CTA */}
       <section
