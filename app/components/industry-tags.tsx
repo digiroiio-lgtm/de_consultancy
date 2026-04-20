@@ -24,7 +24,7 @@ export function IndustryTags() {
   return (
     <section
       style={{
-        background: "#050505",
+        background: "var(--section-dark)",
         paddingBlock: "clamp(64px,8vw,120px)",
         borderTop: "1px solid var(--border)",
       }}

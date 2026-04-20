@@ -129,7 +129,7 @@ export default function ContactPage() {
                   borderRadius: 16,
                   border: "1px dashed var(--border)",
                   padding: "28px 24px",
-                  background: "rgba(255,255,255,0.02)",
+                  background: "var(--card-bg)",
                 }}
               >
                 <p style={{ fontSize: 14, color: "var(--fg-dim)", lineHeight: 1.65 }}>

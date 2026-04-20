@@ -103,7 +103,7 @@ export default function ExportConsultingPage() {
           paddingBlock: "clamp(64px,8vw,120px)",
           paddingInline: "clamp(24px,5vw,80px)",
           borderBottom: "1px solid var(--border)",
-          background: "#050505",
+          background: "var(--section-dark)",
         }}
         className="max-w-site"
       >

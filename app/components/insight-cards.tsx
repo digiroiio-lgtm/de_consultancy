@@ -39,7 +39,7 @@ export function InsightCards() {
   return (
     <section
       style={{
-        background: "#050505",
+        background: "var(--section-dark)",
         paddingBlock: "clamp(80px,10vw,160px)",
         borderTop: "1px solid var(--border)",
         borderBottom: "1px solid var(--border)",

@@ -104,7 +104,7 @@ export default function ManagementConsultingPage() {
       </section>
 
       {/* Before / After */}
-      <section style={{ paddingBlock: "clamp(64px,8vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid var(--border)", background: "#050505" }}
+      <section style={{ paddingBlock: "clamp(64px,8vw,120px)", paddingInline: "clamp(24px,5vw,80px)", borderBottom: "1px solid var(--border)", background: "var(--section-dark)" }}
         className="max-w-site">
         <p className="label" style={{ marginBottom: 16 }}>Proven Impact</p>
         <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(32px,4vw,56px)" }}>Before / After Metrics</h2>

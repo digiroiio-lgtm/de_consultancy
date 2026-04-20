@@ -10,8 +10,9 @@
   --fg-dimmer:rgba(255,255,255,0.72);
   --fg-weaker:rgba(255,255,255,0.47);
   --fg-dim:   rgba(255,255,255,0.35);
-  --border:   rgba(255,255,255,0.12);
-  --card-bg:  rgba(255,255,255,0.04);
+  --border:       rgba(255,255,255,0.12);
+  --card-bg:      rgba(255,255,255,0.04);
+  --section-dark: #050505;
   --radius:   12px;
   --header-bg-scrolled: rgba(0,0,0,0.92);
   --scrollbar-track: #111;
@@ -27,8 +28,9 @@
   --fg-dimmer:rgba(0,0,0,0.75);
   --fg-weaker:rgba(0,0,0,0.50);
   --fg-dim:   rgba(0,0,0,0.42);
-  --border:   rgba(0,0,0,0.12);
-  --card-bg:  rgba(0,0,0,0.04);
+  --border:       rgba(0,0,0,0.12);
+  --card-bg:      rgba(0,0,0,0.04);
+  --section-dark: #ebebef;
   --header-bg-scrolled: rgba(245,245,247,0.94);
   --scrollbar-track: #e8e8ec;
 }
@@ -163,7 +165,7 @@ a { text-underline-offset: 3px; }
   align-items: center;
   gap: 8px;
   background: transparent;
-  color: #fff;
+  color: var(--fg);
   font-weight: 600;
   font-size: 14px;
   padding: 13px 28px;
@@ -265,17 +267,17 @@ a { text-underline-offset: 3px; }
 
 /* ─── Input dark ─────────────────────────────────────────────── */
 .input-dark {
-  background: rgba(255,255,255,0.06);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
-  color: #fff;
+  color: var(--fg);
   padding: 12px 16px;
   font-size: 15px;
   outline: none;
   width: 100%;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-.input-dark::placeholder { color: rgba(255,255,255,0.3); }
+.input-dark::placeholder { color: var(--fg-dim); }
 .input-dark:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(161,0,255,0.15);
@@ -287,7 +289,7 @@ input[type="range"] {
   appearance: none;
   height: 4px;
   border-radius: 2px;
-  background: rgba(255,255,255,0.15);
+  background: var(--border);
   outline: none;
   width: 100%;
 }

@@ -28,7 +28,7 @@ export function ExportScoreTool() {
   return (
     <section
       style={{
-        background: "#050505",
+        background: "var(--section-dark)",
         paddingBlock: "clamp(80px,10vw,160px)",
         borderTop: "1px solid var(--border)",
       }}
@@ -88,7 +88,7 @@ export function ExportScoreTool() {
           {/* Score output */}
           <div
             style={{
-              background: "rgba(255,255,255,0.03)",
+              background: "var(--card-bg)",
               border: "1px solid var(--border)",
               borderRadius: 16,
               padding: "clamp(32px,4vw,56px)",
@@ -122,7 +122,7 @@ export function ExportScoreTool() {
                     <stop offset="100%" stopColor="#ff6ef7" />
                   </linearGradient>
                 </defs>
-                <text x="70" y="74" textAnchor="middle" fill="#fff" fontSize="28" fontWeight="800" fontFamily="Inter,sans-serif">
+                <text x="70" y="74" textAnchor="middle" fill="var(--fg)" fontSize="28" fontWeight="800" fontFamily="Inter,sans-serif">
                   {percentage}%
                 </text>
               </svg>
