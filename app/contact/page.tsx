@@ -19,6 +19,8 @@ const faqs: FaqItem[] = [
 ];
 
 export default function ContactPage() {
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL;
+
   return (
     <div className="space-y-8">
       <SchemaScript
@@ -39,16 +41,22 @@ export default function ContactPage() {
         <ContactMultistepForm />
         <section className="space-y-4 rounded-2xl border border-zinc-200 bg-white p-6">
           <a href={company.whatsapp} className="inline-block rounded-full bg-[#0A2540] px-5 py-3 text-sm font-semibold text-white">
-            WhatsApp CTA
+            Contact us on WhatsApp
           </a>
-          <div className="overflow-hidden rounded-xl border border-zinc-200">
-            <iframe
-              title="Calendly"
-              src="https://calendly.com"
-              className="h-[420px] w-full"
-              loading="lazy"
-            />
-          </div>
+          {calendlyUrl ? (
+            <div className="overflow-hidden rounded-xl border border-zinc-200">
+              <iframe
+                title="Calendly"
+                src={calendlyUrl}
+                className="h-[420px] w-full"
+                loading="lazy"
+              />
+            </div>
+          ) : (
+            <p className="rounded-xl border border-dashed border-zinc-300 bg-zinc-50 p-4 text-sm text-zinc-600">
+              Calendly embed is not configured yet. Set <code>NEXT_PUBLIC_CALENDLY_URL</code> to enable inline booking.
+            </p>
+          )}
         </section>
       </div>
       <FaqSection faqs={faqs} />

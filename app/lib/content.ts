@@ -15,7 +15,9 @@ export const company = {
   name: "DE Consultancy",
   description:
     "Management and export consulting partner for manufacturers focused on profitability, operations, and global expansion.",
-  url: "https://de-consultancy.vercel.app",
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://set-site-url.example"),
   phone: "+90 555 000 00 00",
   email: "strategy@deconsultancy.com",
   whatsapp: "https://wa.me/905550000000",

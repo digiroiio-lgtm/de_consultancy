@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { company } from "../lib/content";
 
 export function StickyCta() {
   return (
@@ -9,12 +10,12 @@ export function StickyCta() {
       >
         Book Strategy Call
       </Link>
-      <Link
-        href="https://wa.me/905550000000"
+      <a
+        href={company.whatsapp}
         className="rounded-full border border-zinc-300 bg-white px-5 py-3 text-sm font-semibold text-zinc-900 shadow"
       >
         WhatsApp
-      </Link>
+      </a>
     </div>
   );
 }

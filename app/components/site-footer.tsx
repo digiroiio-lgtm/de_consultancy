@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { company } from "../lib/content";
 
 export function SiteFooter() {
   return (
@@ -26,7 +27,7 @@ export function SiteFooter() {
               <Link href="/contact">Book Strategy Call</Link>
             </li>
             <li>
-              <a href="https://wa.me/905550000000">WhatsApp</a>
+              <a href={company.whatsapp}>WhatsApp</a>
             </li>
           </ul>
         </div>

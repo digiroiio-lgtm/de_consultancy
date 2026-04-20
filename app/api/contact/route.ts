@@ -14,7 +14,14 @@ function sanitize(input: unknown, max = 600) {
 }
 
 export async function POST(request: Request) {
-  const body = (await request.json().catch(() => ({}))) as ContactPayload;
+  const body = (await request.json().catch((error) => {
+    console.error("Invalid contact request JSON payload", error);
+    return null;
+  })) as ContactPayload | null;
+
+  if (!body) {
+    return NextResponse.json({ error: "Invalid JSON payload" }, { status: 400 });
+  }
 
   const payload = {
     name: sanitize(body.name, 100),
@@ -44,7 +51,9 @@ export async function POST(request: Request) {
         subject: `New strategy call lead: ${payload.company}`,
         text: `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company}\nService: ${payload.serviceInterest}\nGoal: ${payload.goal}`,
       }),
-    }).catch(() => undefined);
+    }).catch((error) => {
+      console.error("Failed to send lead email via Resend", error);
+    });
   }
 
   return NextResponse.json({ ok: true });

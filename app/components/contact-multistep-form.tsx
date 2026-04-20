@@ -1,6 +1,10 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
+import { company } from "../lib/content";
+
+const DEFAULT_ERROR_MESSAGE = "Submission failed. Please try again or contact us on WhatsApp.";
+const MIN_GOAL_LENGTH = 10;
 
 const initial = {
   name: "",
@@ -13,6 +17,7 @@ const initial = {
 export function ContactMultistepForm() {
   const [step, setStep] = useState(1);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState(DEFAULT_ERROR_MESSAGE);
   const [values, setValues] = useState(initial);
 
   const canContinue = useMemo(() => {
@@ -22,12 +27,13 @@ export function ContactMultistepForm() {
     if (step === 2) {
       return values.company.trim().length > 1;
     }
-    return values.goal.trim().length > 9;
+    return values.goal.trim().length >= MIN_GOAL_LENGTH;
   }, [step, values]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("submitting");
+    setErrorMessage(DEFAULT_ERROR_MESSAGE);
 
     try {
       const response = await fetch("/api/contact", {
@@ -36,12 +42,18 @@ export function ContactMultistepForm() {
         body: JSON.stringify(values),
       });
 
-      if (!response.ok) throw new Error("Request failed");
+      if (!response.ok) {
+        if (response.status === 400) {
+          setErrorMessage("Please complete all required fields with valid business contact details.");
+        }
+        throw new Error(`Request failed with status ${response.status}`);
+      }
 
       setStatus("success");
       setValues(initial);
       setStep(1);
-    } catch {
+    } catch (error) {
+      console.error("Contact form submission failed", error);
       setStatus("error");
     }
   }
@@ -150,7 +162,12 @@ export function ContactMultistepForm() {
         <p className="mt-4 text-sm font-medium text-emerald-700">Thanks. We will contact you within one business day.</p>
       )}
       {status === "error" && (
-        <p className="mt-4 text-sm font-medium text-red-700">Submission failed. Please try again or contact us on WhatsApp.</p>
+        <p className="mt-4 text-sm font-medium text-red-700">
+          {errorMessage}{" "}
+          <a href={company.whatsapp} className="underline">
+            Contact us on WhatsApp.
+          </a>
+        </p>
       )}
     </form>
   );

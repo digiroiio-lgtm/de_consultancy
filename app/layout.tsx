@@ -25,15 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
+  const validGa4Id = ga4Id && /^G-[A-Z0-9]+$/.test(ga4Id) ? ga4Id : undefined;
 
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full bg-[#F6F8FB] text-zinc-900">
-        {ga4Id ? (
+        {validGa4Id ? (
           <>
-            <Script src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`} strategy="afterInteractive" />
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${validGa4Id}`} strategy="afterInteractive" />
             <Script id="ga4" strategy="afterInteractive">
-              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${ga4Id}');`}
+              {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${validGa4Id}');`}
             </Script>
           </>
         ) : null}
