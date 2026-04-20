@@ -19,13 +19,13 @@ export const company = {
     process.env.NEXT_PUBLIC_SITE_URL ??
     (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://set-site-url.example"),
   phone: "+90 555 000 00 00",
-  email: "strategy@growturglobal.com",
+  email: "strategy@growturaglobal.com",
   whatsapp: "https://wa.me/905550000000",
 };
 
 export const coreFaqs: FaqItem[] = [
   {
-    question: "How is DE Consultancy different from traditional consultants?",
+    question: "How is Growtura Global different from traditional consultants?",
     answer:
       "We are execution-led. We install systems, KPIs, and governance routines so measurable gains happen in weeks, not just slide decks in months.",
   },

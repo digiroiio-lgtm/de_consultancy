@@ -1,4 +1,4 @@
-# DE Consultancy Website
+# Growtura Global Website
 
 Enterprise-grade consulting website built with Next.js App Router + Tailwind CSS.
 
