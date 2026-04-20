@@ -3,7 +3,7 @@
 import { FormEvent, useMemo, useState } from "react";
 import { company } from "../lib/content";
 
-const DEFAULT_ERROR_MESSAGE = "Submission failed. Please try again or contact us on WhatsApp.";
+const DEFAULT_ERROR_MESSAGE = "Submission failed. Please try again or email us directly.";
 const MIN_GOAL_LENGTH = 10;
 
 const initial = {
