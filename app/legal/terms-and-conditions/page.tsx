@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { company } from "../../lib/content";
+import { buildAlternates, localeRoutes } from "../../lib/i18n";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description: "Terms and conditions governing use of Advisera Global's website and consulting services.",
-  alternates: { canonical: "/legal/terms-and-conditions" },
+  alternates: buildAlternates(localeRoutes.termsAndConditions),
 };
 
 const EFFECTIVE_DATE = "April 20, 2026";

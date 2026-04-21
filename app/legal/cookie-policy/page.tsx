@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { company } from "../../lib/content";
+import { buildAlternates, localeRoutes } from "../../lib/i18n";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
   description: "How Advisera Global uses cookies and similar tracking technologies on its website.",
-  alternates: { canonical: "/legal/cookie-policy" },
+  alternates: buildAlternates(localeRoutes.cookiePolicy),
 };
 
 const EFFECTIVE_DATE = "April 20, 2026";

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { company } from "../../lib/content";
+import { buildAlternates, localeRoutes } from "../../lib/i18n";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How Advisera Global collects, uses, and protects your personal information.",
-  alternates: { canonical: "/legal/privacy-policy" },
+  alternates: buildAlternates(localeRoutes.privacyPolicy),
 };
 
 const EFFECTIVE_DATE = "April 20, 2026";
