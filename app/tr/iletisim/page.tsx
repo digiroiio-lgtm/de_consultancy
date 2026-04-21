@@ -70,7 +70,7 @@ export default function TrContactPage() {
             alignItems: "start",
           }}
         >
-          <ContactMultistepForm />
+          <ContactMultistepForm locale="tr" />
 
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             {/* Email */}
