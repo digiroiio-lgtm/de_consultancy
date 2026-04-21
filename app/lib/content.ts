@@ -11,6 +11,14 @@ export type CaseStudy = {
   metrics: string[];
 };
 
+export type CaseStudyCard = {
+  slug: string;
+  title: string;
+  industry: string;
+  service: string;
+  metrics: string[];
+};
+
 export const company = {
   name: "Advisera Global",
   description:
@@ -131,5 +139,29 @@ export const industries = [
       "Operational excellence playbooks",
       "Export pricing and partner systems",
     ],
+  },
+];
+
+export const trCaseStudies: CaseStudyCard[] = [
+  {
+    slug: "reduced-costs-18-percent-in-90-days",
+    title: "90 Günde %18 Maliyet Azaltma",
+    industry: "Ambalaj",
+    service: "Yönetim Danışmanlığı",
+    metrics: ["%18 toplam maliyet azaltma", "%11 FAVÖK artışı", "90 günlük uygulama"],
+  },
+  {
+    slug: "entered-us-market-with-3-distributors",
+    title: "3 Distribütörle ABD Pazarına Giriş",
+    industry: "Gıda Üretimi",
+    service: "İhracat Danışmanlığı",
+    metrics: ["3 ABD distribütörü anlaşması", "120 günde ilk sözleşmeler", "%22 ihracat geliri büyümesi"],
+  },
+  {
+    slug: "cash-flow-recovery-for-industrial-manufacturer",
+    title: "Endüstriyel Üreticide Nakit Akışı Toparlanması",
+    industry: "Endüstriyel Üretim",
+    service: "Yönetim Danışmanlığı",
+    metrics: ["%28 daha hızlı nakit dönüşümü", "%16 verim artışı", "9 puanlık OTIF kazanımı"],
   },
 ];

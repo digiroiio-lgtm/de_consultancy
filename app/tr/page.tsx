@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SchemaScript } from "../components/schema-script";
 import { FaqSection } from "../components/faq-section";
-import { company, caseStudies } from "../lib/content";
+import { company, trCaseStudies } from "../lib/content";
 import { breadcrumbSchema, faqSchema } from "../lib/schema";
 import { buildAlternatesTr, localeRoutes } from "../lib/i18n";
 import type { FaqItem } from "../lib/content";
@@ -184,7 +184,7 @@ export default function TrHomePage() {
         <p className="label" style={{ marginBottom: 16 }}>Kanıtlanmış Sonuçlar</p>
         <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(32px,4vw,56px)" }}>Referans Çalışmalar</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(300px,100%),1fr))", gap: 20 }}>
-          {caseStudies.map((cs) => (
+          {trCaseStudies.map((cs) => (
             <article key={cs.slug} className="card" style={{ padding: "28px 28px" }}>
               <p style={{ fontSize: 12, fontWeight: 700, color: "#a100ff", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>
                 {cs.industry} · {cs.service}
