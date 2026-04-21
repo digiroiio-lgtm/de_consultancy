@@ -51,8 +51,24 @@ export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale })
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const links = navLinks[locale];
   const cta = ctaLink[locale];
+
+  function openDrop(href: string) {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setOpenDropdown(href);
+  }
+
+  function scheduleDrop() {
+    closeTimerRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+      closeTimerRef.current = null;
+    }, 220);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -61,7 +77,12 @@ export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale })
   }, []);
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        setOpenDropdown(null);
+      }
+    };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, []);
@@ -107,8 +128,8 @@ export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale })
                   <div
                     key={link.href}
                     style={{ position: "relative" }}
-                    onMouseEnter={() => setOpenDropdown(link.href)}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    onMouseEnter={() => openDrop(link.href)}
+                    onMouseLeave={scheduleDrop}
                   >
                     <Link
                       href={link.href}
@@ -131,52 +152,62 @@ export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale })
                         <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </Link>
-                    {/* Dropdown */}
+                    {/* Dropdown — paddingTop bridges the visual gap so hover never breaks */}
                     <div
                       style={{
                         position: "absolute",
-                        top: "calc(100% + 8px)",
+                        top: "100%",
                         left: "50%",
-                        background: "var(--header-bg-scrolled, rgba(0,0,0,0.95))",
-                        border: "1px solid var(--border)",
-                        borderRadius: 10,
-                        backdropFilter: "blur(16px)",
-                        padding: "8px 0",
-                        minWidth: 160,
+                        paddingTop: 8,
                         zIndex: 60,
                         opacity: openDropdown === link.href ? 1 : 0,
                         pointerEvents: openDropdown === link.href ? "auto" : "none",
                         transform: `translateX(-50%) translateY(${openDropdown === link.href ? 0 : -6}px)`,
                         transition: "opacity 0.18s ease, transform 0.18s ease",
                       }}
+                      onMouseEnter={() => openDrop(link.href)}
+                      onMouseLeave={scheduleDrop}
                     >
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          style={{
-                            display: "block",
-                            padding: "10px 20px",
-                            fontSize: 13,
-                            fontWeight: 500,
-                            color: "var(--muted)",
-                            textDecoration: "none",
-                            letterSpacing: "0.01em",
-                            transition: "color 0.15s, background 0.15s",
-                            borderRadius: 6,
-                          }}
-                          onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLElement).style.color = "var(--fg)";
-                            (e.currentTarget as HTMLElement).style.background = "rgba(161,0,255,0.1)";
-                          }}
-                          onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLElement).style.color = "var(--muted)";
-                            (e.currentTarget as HTMLElement).style.background = "transparent";
-                          }}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      <div
+                        style={{
+                          background: "var(--header-bg-scrolled, rgba(0,0,0,0.95))",
+                          border: "1px solid var(--border)",
+                          borderRadius: 10,
+                          backdropFilter: "blur(16px)",
+                          padding: "6px 0",
+                          minWidth: 180,
+                        }}
+                      >
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              minHeight: 44,
+                              padding: "0 20px",
+                              fontSize: 13,
+                              fontWeight: 500,
+                              color: "var(--muted)",
+                              textDecoration: "none",
+                              letterSpacing: "0.01em",
+                              transition: "color 0.15s, background 0.15s",
+                              borderRadius: 6,
+                            }}
+                            onMouseEnter={(e) => {
+                              (e.currentTarget as HTMLElement).style.color = "var(--fg)";
+                              (e.currentTarget as HTMLElement).style.background = "rgba(161,0,255,0.1)";
+                            }}
+                            onMouseLeave={(e) => {
+                              (e.currentTarget as HTMLElement).style.color = "var(--muted)";
+                              (e.currentTarget as HTMLElement).style.background = "transparent";
+                            }}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ) : (
