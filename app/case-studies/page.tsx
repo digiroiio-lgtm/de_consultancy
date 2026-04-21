@@ -4,11 +4,12 @@ import { FaqSection } from "../components/faq-section";
 import { SchemaScript } from "../components/schema-script";
 import { caseStudies, FaqItem } from "../lib/content";
 import { breadcrumbSchema, faqSchema } from "../lib/schema";
+import { buildAlternates } from "../lib/i18n";
 
 export const metadata: Metadata = {
   title: "Case Studies",
   description: "Real consulting outcomes with quantified business results for manufacturers.",
-  alternates: { canonical: "/case-studies" },
+  alternates: buildAlternates({ en: "/case-studies", tr: "/tr/referans-calismalar" }),
 };
 
 const faqs: FaqItem[] = [

@@ -10,6 +10,7 @@ export const localeRoutes = {
   managementConsulting:   { en: "/management-consulting",     tr: "/tr/yonetim-danismanligi" },
   exportConsulting:       { en: "/export-consulting",         tr: "/tr/ihracat-danismanligi" },
   costReduction:          { en: "/cost-reduction-consulting", tr: "/tr/maliyet-optimizasyonu" },
+  caseStudies:            { en: "/case-studies",              tr: "/tr/referans-calismalar" },
 } as const;
 
 // Build Next.js metadata alternates + canonical for any page pair

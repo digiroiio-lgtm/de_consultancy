@@ -16,6 +16,7 @@ export type CaseStudyCard = {
   title: string;
   industry: string;
   service: string;
+  result: string;
   metrics: string[];
 };
 
@@ -148,6 +149,7 @@ export const trCaseStudies: CaseStudyCard[] = [
     title: "90 Günde %18 Maliyet Azaltma",
     industry: "Ambalaj",
     service: "Yönetim Danışmanlığı",
+    result: "3 fabrikada işletme marjı yeniden sağlandı, tahmin kontrolü güçlendirildi.",
     metrics: ["%18 toplam maliyet azaltma", "%11 FAVÖK artışı", "90 günlük uygulama"],
   },
   {
@@ -155,6 +157,7 @@ export const trCaseStudies: CaseStudyCard[] = [
     title: "3 Distribütörle ABD Pazarına Giriş",
     industry: "Gıda Üretimi",
     service: "İhracat Danışmanlığı",
+    result: "Öncelikli eyaletlerde lansman siparişleri ve tekrarlayan distribütör talebi elde edildi.",
     metrics: ["3 ABD distribütörü anlaşması", "120 günde ilk sözleşmeler", "%22 ihracat geliri büyümesi"],
   },
   {
@@ -162,6 +165,7 @@ export const trCaseStudies: CaseStudyCard[] = [
     title: "Endüstriyel Üreticide Nakit Akışı Toparlanması",
     industry: "Endüstriyel Üretim",
     service: "Yönetim Danışmanlığı",
+    result: "Zamanında teslimat performansı artırılırken işletme sermayesi serbest bırakıldı.",
     metrics: ["%28 daha hızlı nakit dönüşümü", "%16 verim artışı", "9 puanlık OTIF kazanımı"],
   },
 ];

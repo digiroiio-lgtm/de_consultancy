@@ -201,7 +201,7 @@ export default function TrHomePage() {
           ))}
         </div>
         <div style={{ marginTop: 32 }}>
-          <Link href="/case-studies" className="btn-outline" style={{ fontSize: 13 }}>
+          <Link href="/tr/referans-calismalar" className="btn-outline" style={{ fontSize: 13 }}>
             Tüm Referansları Gör →
           </Link>
         </div>
