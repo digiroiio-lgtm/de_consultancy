@@ -53,7 +53,7 @@ export async function POST(request: Request) {
       await resend.emails.send({
         from: `Advisera <${CONTACT_EMAIL}>`,
         to: [CONTACT_EMAIL],
-        reply_to: payload.email,
+        replyTo: payload.email,
         subject: `New strategy call lead: ${payload.company}`,
         html: `
           <h3>New Strategy Call Lead</h3>
