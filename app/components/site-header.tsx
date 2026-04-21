@@ -90,7 +90,8 @@ export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale })
               }}
             >
               <span style={{ color: "#a100ff" }}>▲</span>
-              Advisera Global
+              <span className="hidden md:inline">Advisera Global</span>
+              <span className="inline md:hidden">Advisera</span>
             </Link>
 
             {/* Desktop nav */}
