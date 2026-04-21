@@ -22,7 +22,7 @@ const navLinks: Record<Locale, { href: string; label: string }[]> = {
 
 const ctaLink: Record<Locale, { href: string; label: string }> = {
   en: { href: "/contact",    label: "Book Strategy Call" },
-  tr: { href: "/tr/iletisim", label: "Görüşme Ayırtın" },
+  tr: { href: "/tr/iletisim", label: "Görüşme Planlayın" },
 };
 
 export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale }) {
