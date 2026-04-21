@@ -24,9 +24,7 @@ export const company = {
   name: "Advisera Global",
   description:
     "Management and export consulting partner for manufacturers focused on profitability, operations, and global expansion.",
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://set-site-url.example"),
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://adviseraglobal.com",
   email: "info@adviseraglobal.com",
   address: {
     street: "145 W 55th St",
