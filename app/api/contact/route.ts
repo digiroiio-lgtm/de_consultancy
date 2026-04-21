@@ -1,4 +1,6 @@
-import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const CONTACT_EMAIL = "office@adviseraglobal.com";
 
 type ContactPayload = {
   name?: string;
@@ -13,15 +15,23 @@ function sanitize(input: unknown, max = 600) {
   return input.trim().slice(0, max);
 }
 
+export async function GET() {
+  return Response.json({ status: "API working" });
+}
+
 export async function POST(request: Request) {
+  console.log("RESEND KEY:", process.env.RESEND_API_KEY ? "OK" : "MISSING");
+
   const body = (await request.json().catch((error) => {
     console.error("Invalid contact request JSON payload", error);
     return null;
   })) as ContactPayload | null;
 
   if (!body) {
-    return NextResponse.json({ error: "Invalid JSON payload" }, { status: 400 });
+    return Response.json({ error: "Invalid JSON payload" }, { status: 400 });
   }
+
+  console.log("FORM DATA:", body);
 
   const payload = {
     name: sanitize(body.name, 100),
@@ -32,29 +42,35 @@ export async function POST(request: Request) {
   };
 
   if (!payload.name || !payload.email.includes("@") || !payload.company || payload.goal.length < 10) {
-    return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+    return Response.json({ error: "Invalid request" }, { status: 400 });
   }
 
   const resendKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_TO_EMAIL;
 
-  if (resendKey && toEmail) {
-    await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: process.env.RESEND_FROM_EMAIL ?? "noreply@adviseraglobal.com",
-        to: [toEmail],
+  if (resendKey) {
+    const resend = new Resend(resendKey);
+    try {
+      await resend.emails.send({
+        from: `Advisera <${CONTACT_EMAIL}>`,
+        to: [CONTACT_EMAIL],
+        reply_to: payload.email,
         subject: `New strategy call lead: ${payload.company}`,
-        text: `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company}\nService: ${payload.serviceInterest}\nGoal: ${payload.goal}`,
-      }),
-    }).catch((error) => {
+        html: `
+          <h3>New Strategy Call Lead</h3>
+          <p><b>Name:</b> ${payload.name}</p>
+          <p><b>Email:</b> ${payload.email}</p>
+          <p><b>Company:</b> ${payload.company}</p>
+          <p><b>Service:</b> ${payload.serviceInterest}</p>
+          <p><b>Goal:</b> ${payload.goal}</p>
+        `,
+      });
+    } catch (error) {
       console.error("Failed to send lead email via Resend", error);
-    });
+      return Response.json({ error: "Email failed" }, { status: 500 });
+    }
+  } else {
+    console.warn("RESEND_API_KEY not set — skipping email send");
   }
 
-  return NextResponse.json({ ok: true });
+  return Response.json({ ok: true });
 }
