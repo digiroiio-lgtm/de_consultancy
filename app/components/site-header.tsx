@@ -131,7 +131,6 @@ export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale })
                         position: "absolute",
                         top: "calc(100% + 8px)",
                         left: "50%",
-                        transform: "translateX(-50%)",
                         background: "var(--header-bg-scrolled, rgba(0,0,0,0.95))",
                         border: "1px solid var(--border)",
                         borderRadius: 10,
