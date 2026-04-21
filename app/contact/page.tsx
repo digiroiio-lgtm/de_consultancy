@@ -8,7 +8,7 @@ import { buildAlternates, localeRoutes } from "../lib/i18n";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Book your strategy call via form or email. Reach Advisera Global at info@adviseraglobal.com.",
+  description: "Book your strategy call via form or email. Reach Advisera Global at office@adviseraglobal.com.",
   alternates: buildAlternates(localeRoutes.contact),
 };
 

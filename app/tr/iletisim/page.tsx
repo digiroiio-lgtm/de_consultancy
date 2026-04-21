@@ -10,7 +10,7 @@ import type { FaqItem } from "../../lib/content";
 export const metadata: Metadata = {
   title: "İletişim",
   description:
-    "Strateji görüşmesi ayırtın. Form veya e-posta yoluyla Advisera Global ile iletişime geçin: info@adviseraglobal.com",
+    "Strateji görüşmesi ayırtın. Form veya e-posta yoluyla Advisera Global ile iletişime geçin: office@adviseraglobal.com",
   alternates: buildAlternatesTr(localeRoutes.contact),
 };
 

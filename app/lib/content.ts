@@ -25,7 +25,7 @@ export const company = {
   description:
     "Management and export consulting partner for manufacturers focused on profitability, operations, and global expansion.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://adviseraglobal.com",
-  email: "info@adviseraglobal.com",
+  email: "office@adviseraglobal.com",
   address: {
     street: "1140 6th Ave, 9th Floor",
     city: "New York",
