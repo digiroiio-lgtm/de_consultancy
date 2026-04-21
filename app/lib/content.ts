@@ -27,12 +27,12 @@ export const company = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://adviseraglobal.com",
   email: "info@adviseraglobal.com",
   address: {
-    street: "145 W 55th St",
+    street: "1140 6th Ave, 9th Floor",
     city: "New York",
     state: "NY",
-    zip: "10019",
-    country: "USA",
-    full: "145 W 55th St, New York, NY 10019, USA",
+    zip: "10036",
+    country: "United States",
+    full: "1140 6th Ave, 9th Floor, New York, NY 10036, United States",
   },
 };
 
