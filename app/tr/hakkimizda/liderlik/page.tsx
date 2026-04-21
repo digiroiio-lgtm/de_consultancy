@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 const leaders = [
   {
     slug: "deniz-erdogan",
-    name: "Deniz Erdogan",
-    title: "Kurucu Ortak",
-    bio: "Deniz, 12 ülkede büyük ölçekli operasyonel dönüşüm projelerine liderlik etmiştir. Orta ölçekli üreticiler için FAVÖK iyileştirmesi ve tedarik zinciri yeniden yapılandırması konularında uzmanlaşmıştır.",
+    name: "Deniz Erdoğan",
+    title: "Kurucu, Advisera Global",
+    bio: "Maliyet optimizasyonu, fiyatlama sistemleri ve ihracat büyümesi konularında uzman, uygulama odaklı bir operatördür. Tüm projeleri ölçülebilir EBITDA etkisi odağıyla yönetir.",
     linkedin: "https://linkedin.com",
     initials: "DE",
   },

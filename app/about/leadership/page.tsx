@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 const leaders = [
   {
     slug: "deniz-erdogan",
-    name: "Deniz Erdogan",
-    title: "Managing Partner",
-    bio: "Deniz has led large-scale operational transformation projects across 12 countries, with a focus on EBITDA improvement and supply-chain restructuring for mid-market manufacturers.",
+    name: "Deniz Erdoğan",
+    title: "Founder, Advisera Global",
+    bio: "Execution-focused operator with expertise in cost optimization, pricing systems, and export growth for manufacturers. Leads all engagements with a focus on measurable EBITDA impact.",
     linkedin: "https://linkedin.com",
     initials: "DE",
   },
