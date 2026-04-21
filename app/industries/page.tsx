@@ -7,7 +7,7 @@ import { breadcrumbSchema, faqSchema } from "../lib/schema";
 
 export const metadata: Metadata = {
   title: "Industries We Serve",
-  description: "Consulting solutions for packaging, food production, and industrial manufacturing companies.",
+  description: "Consulting solutions for packaging, food production, industrial manufacturing, and metal &amp; materials production companies.",
   alternates: { canonical: "/industries" },
 };
 

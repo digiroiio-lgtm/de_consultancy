@@ -40,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...bilingualEntry(localeRoutes.costReduction.en, localeRoutes.costReduction.tr, 0.8),
     ...bilingualEntry(localeRoutes.about.en, localeRoutes.about.tr, 0.7),
     ...bilingualEntry(localeRoutes.contact.en, localeRoutes.contact.tr, 0.9),
+    ...bilingualEntry(localeRoutes.metalMaterialsProduction.en, localeRoutes.metalMaterialsProduction.tr, 0.7),
   ];
 
   // EN-only static routes (no TR equivalent yet)

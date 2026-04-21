@@ -208,7 +208,7 @@ export function HeroSection() {
             className="body-md"
             style={{ color: "var(--fg-weaker)", maxWidth: 400 }}
           >
-            Manufacturers in packaging, food production, and industrial sectors trust Advisera Global to turn operational complexity into competitive advantage.
+            Manufacturers in packaging, food production, and industrial sectors — including metal processing and copper producers — trust Advisera Global to turn operational complexity into competitive advantage.
           </p>
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginTop: 8 }}>
             <Link href="/contact" className="btn-primary">

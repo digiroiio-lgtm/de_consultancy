@@ -14,6 +14,7 @@ export const localeRoutes = {
   caseStudies:            { en: "/case-studies",              tr: "/tr/referans-calismalar" },
   exportManufacturers:   { en: "/export-consulting/manufacturers",  tr: "/tr/ihracat-danismanligi/ureticiler" },
   exportUsaMarket:       { en: "/export-consulting/usa-market-entry", tr: "/tr/ihracat-danismanligi/abd-pazar-girisi" },
+  metalMaterialsProduction: { en: "/industries/metal-materials-production", tr: "/tr/sektorler/metal-malzeme-uretimi" },
   cookiePolicy:          { en: "/legal/cookie-policy",              tr: "/tr/legal/cookie-policy" },
   privacyPolicy:         { en: "/legal/privacy-policy",             tr: "/tr/legal/privacy-policy" },
   termsAndConditions:    { en: "/legal/terms-and-conditions",        tr: "/tr/legal/terms-and-conditions" },

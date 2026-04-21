@@ -162,7 +162,10 @@ export default function TrHomePage() {
         className="max-w-site"
       >
         <p className="label" style={{ marginBottom: 16 }}>Hizmetlerimiz</p>
-        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: "clamp(32px,4vw,56px)" }}>Ne Yapıyoruz</h2>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 16 }}>Ne Yapıyoruz</h2>
+        <p style={{ fontSize: 15, color: "var(--fg-weaker)", maxWidth: 640, lineHeight: 1.65, marginBottom: "clamp(32px,4vw,56px)" }}>
+          Ambalaj, gıda üretimi ve bakır gibi demir dışı metal işleme dahil olmak üzere karmaşık üretim sektörlerinde çalışıyoruz.
+        </p>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(300px,100%),1fr))", gap: 20 }}>
           {services.map((s) => (
             <Link key={s.title} href={s.href} style={{ textDecoration: "none" }}>

@@ -3,7 +3,7 @@ export type FaqItem = { question: string; answer: string };
 export type CaseStudy = {
   slug: string;
   title: string;
-  industry: "Packaging" | "Food Production" | "Industrial Manufacturing";
+  industry: "Packaging" | "Food Production" | "Industrial Manufacturing" | "Metal & Materials Production";
   service: "Management Consulting" | "Export Consulting";
   problem: string;
   action: string;
@@ -137,6 +137,21 @@ export const industries = [
       "Cash flow optimization",
       "Operational excellence playbooks",
       "Export pricing and partner systems",
+    ],
+  },
+  {
+    slug: "metal-materials-production",
+    name: "Metal & Materials Production",
+    description: "Copper, aluminum, steel and non-ferrous manufacturing environments.",
+    painPoints: [
+      "Commodity price volatility and margin compression",
+      "Energy cost exposure and production efficiency gaps",
+      "Export compliance and global pricing complexity",
+    ],
+    solutions: [
+      "Cost-to-produce modeling and procurement controls",
+      "Plant-level throughput and yield optimization",
+      "Export channel development and pricing architecture",
     ],
   },
 ];

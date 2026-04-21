@@ -7,6 +7,7 @@ const tags = [
   { label: "Packaging", href: "/industries" },
   { label: "Food Production", href: "/industries" },
   { label: "Industrial Manufacturing", href: "/industries" },
+  { label: "Metal & Materials Production", href: "/industries/metal-materials-production" },
   { label: "Cost Optimization", href: "/management-consulting" },
   { label: "Financial Structuring", href: "/management-consulting" },
   { label: "Operational Efficiency", href: "/management-consulting" },
