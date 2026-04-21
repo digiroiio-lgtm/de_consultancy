@@ -39,6 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...bilingualEntry(localeRoutes.exportConsulting.en, localeRoutes.exportConsulting.tr, 0.9),
     ...bilingualEntry(localeRoutes.costReduction.en, localeRoutes.costReduction.tr, 0.8),
     ...bilingualEntry(localeRoutes.about.en, localeRoutes.about.tr, 0.7),
+    ...bilingualEntry(localeRoutes.leadership.en, localeRoutes.leadership.tr, 0.65),
     ...bilingualEntry(localeRoutes.contact.en, localeRoutes.contact.tr, 0.9),
     ...bilingualEntry(localeRoutes.metalMaterialsProduction.en, localeRoutes.metalMaterialsProduction.tr, 0.7),
   ];

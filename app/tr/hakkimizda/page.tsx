@@ -138,6 +138,25 @@ export default function TrAboutPage() {
       </section>
 
       <FaqSection faqs={faqs} locale="tr" />
+
+      {/* Leadership teaser */}
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderTop: "1px solid var(--border)",
+        }}
+        className="max-w-site"
+      >
+        <p className="label" style={{ marginBottom: 16 }}>Ekibimiz</p>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 16 }}>Liderlerimizle Tanışın</h2>
+        <p style={{ fontSize: 17, color: "var(--muted)", marginBottom: 32, maxWidth: 480 }}>
+          Her proje bir kurucu ortak tarafından liderlik edilir — alt kademelere devredilmez. İşin arkasındaki ekibimizi tanıyın.
+        </p>
+        <Link href="/tr/hakkimizda/liderlik" className="btn-outline">
+          Liderlik Ekibini Görüntüle →
+        </Link>
+      </section>
     </div>
   );
 }

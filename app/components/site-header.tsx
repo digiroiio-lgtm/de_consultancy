@@ -7,16 +7,26 @@ import { ThemeToggle } from "./theme-toggle";
 import { LanguageSwitcher } from "./language-switcher";
 import type { Locale } from "../lib/i18n";
 
-const navLinks: Record<Locale, { href: string; label: string }[]> = {
+type NavLink = { href: string; label: string; children?: { href: string; label: string }[] };
+
+const navLinks: Record<Locale, NavLink[]> = {
   en: [
     { href: "/management-consulting", label: "What We Do" },
     { href: "/case-studies", label: "What We Think" },
-    { href: "/about", label: "Who We Are" },
+    {
+      href: "/about",
+      label: "Who We Are",
+      children: [{ href: "/about/leadership", label: "Leadership" }],
+    },
   ],
   tr: [
     { href: "/tr/yonetim-danismanligi", label: "Ne Yapıyoruz" },
     { href: "/tr/ihracat-danismanligi", label: "İhracat" },
-    { href: "/tr/hakkimizda", label: "Hakkımızda" },
+    {
+      href: "/tr/hakkimizda",
+      label: "Hakkımızda",
+      children: [{ href: "/tr/hakkimizda/liderlik", label: "Liderlik" }],
+    },
   ],
 };
 
@@ -33,6 +43,7 @@ export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale })
   void serverLocale; // prop kept for API compatibility
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const links = navLinks[locale];
   const cta = ctaLink[locale];
@@ -84,24 +95,103 @@ export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale })
 
             {/* Desktop nav */}
             <nav aria-label="Primary" style={{ alignItems: "center", gap: 40 }} className="hidden md:flex">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  style={{
-                    fontSize: 14,
-                    fontWeight: 500,
-                    color: "var(--muted)",
-                    textDecoration: "none",
-                    letterSpacing: "0.01em",
-                    transition: "color 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--fg)")}
-                  onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--muted)")}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {links.map((link) =>
+                link.children ? (
+                  <div
+                    key={link.href}
+                    style={{ position: "relative" }}
+                    onMouseEnter={() => setOpenDropdown(link.href)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
+                    <Link
+                      href={link.href}
+                      style={{
+                        fontSize: 14,
+                        fontWeight: 500,
+                        color: "var(--muted)",
+                        textDecoration: "none",
+                        letterSpacing: "0.01em",
+                        transition: "color 0.2s ease",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 4,
+                      }}
+                      onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--fg)")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--muted)")}
+                    >
+                      {link.label}
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor" aria-hidden="true" style={{ opacity: 0.6 }}>
+                        <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </Link>
+                    {/* Dropdown */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "calc(100% + 8px)",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        background: "var(--header-bg-scrolled, rgba(0,0,0,0.95))",
+                        border: "1px solid var(--border)",
+                        borderRadius: 10,
+                        backdropFilter: "blur(16px)",
+                        padding: "8px 0",
+                        minWidth: 160,
+                        zIndex: 60,
+                        opacity: openDropdown === link.href ? 1 : 0,
+                        pointerEvents: openDropdown === link.href ? "auto" : "none",
+                        transform: `translateX(-50%) translateY(${openDropdown === link.href ? 0 : -6}px)`,
+                        transition: "opacity 0.18s ease, transform 0.18s ease",
+                      }}
+                    >
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          style={{
+                            display: "block",
+                            padding: "10px 20px",
+                            fontSize: 13,
+                            fontWeight: 500,
+                            color: "var(--muted)",
+                            textDecoration: "none",
+                            letterSpacing: "0.01em",
+                            transition: "color 0.15s, background 0.15s",
+                            borderRadius: 6,
+                          }}
+                          onMouseEnter={(e) => {
+                            (e.currentTarget as HTMLElement).style.color = "var(--fg)";
+                            (e.currentTarget as HTMLElement).style.background = "rgba(161,0,255,0.1)";
+                          }}
+                          onMouseLeave={(e) => {
+                            (e.currentTarget as HTMLElement).style.color = "var(--muted)";
+                            (e.currentTarget as HTMLElement).style.background = "transparent";
+                          }}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    style={{
+                      fontSize: 14,
+                      fontWeight: 500,
+                      color: "var(--muted)",
+                      textDecoration: "none",
+                      letterSpacing: "0.01em",
+                      transition: "color 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "var(--fg)")}
+                    onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "var(--muted)")}
+                  >
+                    {link.label}
+                  </Link>
+                )
+              )}
             </nav>
 
             {/* Desktop right */}
@@ -197,23 +287,44 @@ export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale })
         }}
       >
         {links.map((link, i) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            onClick={() => setMenuOpen(false)}
-            style={{
-              fontSize: "clamp(28px,8vw,48px)",
-              fontWeight: 700,
-              letterSpacing: "-0.02em",
-              color: "var(--fg)",
-              textDecoration: "none",
-              opacity: menuOpen ? 1 : 0,
-              transform: menuOpen ? "translateX(0)" : "translateX(40px)",
-              transition: `opacity 0.3s ease ${i * 0.07 + 0.1}s, transform 0.3s ease ${i * 0.07 + 0.1}s`,
-            }}
-          >
-            {link.label}
-          </Link>
+          <div key={link.href} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+            <Link
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                fontSize: "clamp(28px,8vw,48px)",
+                fontWeight: 700,
+                letterSpacing: "-0.02em",
+                color: "var(--fg)",
+                textDecoration: "none",
+                opacity: menuOpen ? 1 : 0,
+                transform: menuOpen ? "translateX(0)" : "translateX(40px)",
+                transition: `opacity 0.3s ease ${i * 0.07 + 0.1}s, transform 0.3s ease ${i * 0.07 + 0.1}s`,
+              }}
+            >
+              {link.label}
+            </Link>
+            {link.children?.map((child) => (
+              <Link
+                key={child.href}
+                href={child.href}
+                onClick={() => setMenuOpen(false)}
+                style={{
+                  fontSize: "clamp(16px,4vw,22px)",
+                  fontWeight: 500,
+                  letterSpacing: "-0.01em",
+                  color: "var(--accent)",
+                  textDecoration: "none",
+                  paddingLeft: "clamp(16px,3vw,28px)",
+                  opacity: menuOpen ? 1 : 0,
+                  transform: menuOpen ? "translateX(0)" : "translateX(40px)",
+                  transition: `opacity 0.3s ease ${i * 0.07 + 0.18}s, transform 0.3s ease ${i * 0.07 + 0.18}s`,
+                }}
+              >
+                {child.label}
+              </Link>
+            ))}
+          </div>
         ))}
         <Link
           href={cta.href}

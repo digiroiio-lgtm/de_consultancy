@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { FaqSection } from "../components/faq-section";
 import { SchemaScript } from "../components/schema-script";
 import { FaqItem } from "../lib/content";
@@ -112,6 +113,25 @@ export default function AboutPage() {
       </section>
 
       <FaqSection faqs={faqs} />
+
+      {/* Leadership teaser */}
+      <section
+        style={{
+          paddingBlock: "clamp(64px,8vw,120px)",
+          paddingInline: "clamp(24px,5vw,80px)",
+          borderTop: "1px solid var(--border)",
+        }}
+        className="max-w-site"
+      >
+        <p className="label" style={{ marginBottom: 16 }}>The Team</p>
+        <h2 className="h2" style={{ color: "var(--fg)", marginBottom: 16 }}>Meet Our Leaders</h2>
+        <p style={{ fontSize: 17, color: "var(--muted)", marginBottom: 32, maxWidth: 480 }}>
+          Every engagement is led by a founding partner — not delegated downward. Get to know the people behind the work.
+        </p>
+        <Link href="/about/leadership" className="btn-outline">
+          View Leadership Team →
+        </Link>
+      </section>
     </div>
   );
 }
