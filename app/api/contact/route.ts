@@ -46,7 +46,7 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "advisera-global@resend.dev",
+        from: process.env.RESEND_FROM_EMAIL ?? "noreply@adviseraglobal.com",
         to: [toEmail],
         subject: `New strategy call lead: ${payload.company}`,
         text: `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company}\nService: ${payload.serviceInterest}\nGoal: ${payload.goal}`,
