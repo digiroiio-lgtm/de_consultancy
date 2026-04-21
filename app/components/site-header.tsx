@@ -21,10 +21,10 @@ const navLinks: Record<Locale, NavLink[]> = {
   ],
   tr: [
     { href: "/tr/yonetim-danismanligi", label: "Ne Yapıyoruz" },
-    { href: "/tr/ihracat-danismanligi", label: "İhracat" },
+    { href: "/tr/referans-calismalar",  label: "Ne Düşünüyoruz" },
     {
       href: "/tr/hakkimizda",
-      label: "Hakkımızda",
+      label: "Biz Kimiz",
       children: [{ href: "/tr/hakkimizda/liderlik", label: "Liderlik" }],
     },
   ],
@@ -32,7 +32,7 @@ const navLinks: Record<Locale, NavLink[]> = {
 
 const ctaLink: Record<Locale, { href: string; label: string }> = {
   en: { href: "/contact",    label: "Book Strategy Call" },
-  tr: { href: "/tr/iletisim", label: "Görüşme Planlayın" },
+  tr: { href: "/tr/iletisim", label: "Strateji Görüşmesi Planla" },
 };
 
 export function SiteHeader({ locale: serverLocale = "en" }: { locale?: Locale }) {

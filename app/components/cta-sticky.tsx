@@ -7,7 +7,7 @@ import type { Locale } from "../lib/i18n";
 
 const ctaCopy: Record<Locale, { href: string; desktopLabel: string; mobileLabel: string }> = {
   en: { href: "/contact",     desktopLabel: "Book Strategy Call",          mobileLabel: "Book Strategy Call →" },
-  tr: { href: "/tr/iletisim", desktopLabel: "Strateji Görüşmesi Planlayın",  mobileLabel: "Strateji Görüşmesi Planlayın →" },
+  tr: { href: "/tr/iletisim", desktopLabel: "Strateji Görüşmesi Planla",  mobileLabel: "Strateji Görüşmesi Planla →" },
 };
 
 export function StickyCta({ locale: serverLocale = "en" }: { locale?: Locale }) {

@@ -1,9 +1,9 @@
 {
   "nav": {
     "whatWeDo": "Ne Yapıyoruz",
-    "whatWeThink": "Düşüncelerimiz",
+    "whatWeThink": "Ne Düşünüyoruz",
     "whoWeAre": "Biz Kimiz",
-    "bookCall": "Strateji Görüşmesi Ayırtın"
+    "bookCall": "Strateji Görüşmesi Planla"
   },
   "footer": {
     "whatWeDo": "Ne Yapıyoruz",
@@ -22,6 +22,6 @@
     "tagline": "Ölçülebilir sonuç isteyen üreticiler için kurumsal yönetim ve ihracat danışmanlığı."
   },
   "cta": {
-    "bookCall": "Strateji Görüşmesi Ayırtın →"
+    "bookCall": "Strateji Görüşmesi Planla →"
   }
 }
