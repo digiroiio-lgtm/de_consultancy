@@ -133,6 +133,20 @@ export function SiteFooter({ locale: serverLocale = "en" }: { locale?: Locale })
                 {company.address.city}, {company.address.state} {company.address.zip}<br />
                 {company.address.country}
               </address>
+              <address
+                style={{
+                  fontSize: 12,
+                  color: "var(--muted)",
+                  fontStyle: "normal",
+                  lineHeight: 1.6,
+                  opacity: 0.7,
+                  marginTop: 12,
+                }}
+              >
+                Almondhill Sitesi<br />
+                Acıbadem, 34660 Üsküdar<br />
+                İstanbul, Türkiye
+              </address>
             </div>
           </div>
 
