@@ -16,7 +16,10 @@ const navLinks: Record<Locale, NavLink[]> = {
     {
       href: "/about",
       label: "Who We Are",
-      children: [{ href: "/about/leadership", label: "Leadership" }],
+      children: [
+        { href: "/about/leadership", label: "Leadership" },
+        { href: "/about/founder-message", label: "Founder's Message" },
+      ],
     },
   ],
   tr: [
@@ -25,7 +28,10 @@ const navLinks: Record<Locale, NavLink[]> = {
     {
       href: "/tr/hakkimizda",
       label: "Biz Kimiz",
-      children: [{ href: "/tr/hakkimizda/liderlik", label: "Liderlik" }],
+      children: [
+        { href: "/tr/hakkimizda/liderlik", label: "Liderlik" },
+        { href: "/tr/hakkimizda/kurucu-mesaji", label: "Kurucu Mesajı" },
+      ],
     },
   ],
 };
