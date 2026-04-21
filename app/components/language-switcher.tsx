@@ -4,6 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getAlternatePath, type Locale } from "../lib/i18n";
 
+const LOCALE_COOKIE = "locale-preference";
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
+
+function setLocaleCookie(locale: "en" | "tr") {
+  document.cookie = `${LOCALE_COOKIE}=${locale}; path=/; max-age=${COOKIE_MAX_AGE}; samesite=lax`;
+}
+
 export function LanguageSwitcher({ locale }: { locale: Locale }) {
   const pathname = usePathname();
   const alternatePath = getAlternatePath(pathname, locale);
@@ -36,12 +43,13 @@ export function LanguageSwitcher({ locale }: { locale: Locale }) {
 
       <span style={{ color: "var(--border)", fontSize: 12 }}>|</span>
 
-      {/* Alternate locale link */}
+      {/* Alternate locale link — writes cookie so middleware won't override the choice */}
       <Link
         href={alternatePath}
         hrefLang={alternateLocale}
         aria-label={`Switch to ${alternateLocale === "tr" ? "Turkish" : "English"}`}
         style={btnStyle(false)}
+        onClick={() => setLocaleCookie(alternateLocale)}
       >
         {alternateLocale.toUpperCase()}
       </Link>
