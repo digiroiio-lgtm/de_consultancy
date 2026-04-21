@@ -26,6 +26,27 @@ const services = [
     stat: "18% avg cost reduction",
   },
   {
+    id: "operational",
+    label: "Operational Excellence",
+    tagline: "Lean, Process & Supply Chain",
+    href: "/operational-excellence",
+    items: [
+      {
+        title: "Lean Production Systems",
+        desc: "Eliminate waste, reduce cycle times, and improve throughput with constraint-based production planning and kaizen programs.",
+      },
+      {
+        title: "Supply Chain Optimization",
+        desc: "Vendor consolidation, lead time reduction, and inventory optimization to improve service levels and free up working capital.",
+      },
+      {
+        title: "Process Standardization & S&OP",
+        desc: "SOPs, quality systems, and Sales & Operations Planning cadence to reduce variation and align demand, capacity, and supply.",
+      },
+    ],
+    stat: "22% avg throughput gain",
+  },
+  {
     id: "export",
     label: "Export Consulting",
     tagline: "Global Expansion Systems",

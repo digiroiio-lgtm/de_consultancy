@@ -10,6 +10,7 @@ export const localeRoutes = {
   managementConsulting:   { en: "/management-consulting",     tr: "/tr/yonetim-danismanligi" },
   exportConsulting:       { en: "/export-consulting",         tr: "/tr/ihracat-danismanligi" },
   costReduction:          { en: "/cost-reduction-consulting", tr: "/tr/maliyet-optimizasyonu" },
+  operationalExcellence:  { en: "/operational-excellence",   tr: "/tr/operasyonel-mukemmellik" },
   caseStudies:            { en: "/case-studies",              tr: "/tr/referans-calismalar" },
   exportManufacturers:   { en: "/export-consulting/manufacturers",  tr: "/tr/ihracat-danismanligi/ureticiler" },
   exportUsaMarket:       { en: "/export-consulting/usa-market-entry", tr: "/tr/ihracat-danismanligi/abd-pazar-girisi" },

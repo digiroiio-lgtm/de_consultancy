@@ -48,6 +48,11 @@ const services = [
     desc: "Kalite ve hizmet seviyelerinden ödün vermeden operasyonel maliyetleri azaltın.",
     href: "/tr/maliyet-optimizasyonu",
   },
+  {
+    title: "Operasyonel Mükemmellik",
+    desc: "Yalın üretim, süreç iyileştirme ve tedarik zinciri optimizasyonuyla verimlilik ve kaliteyi maksimize edin.",
+    href: "/tr/operasyonel-mukemmellik",
+  },
 ];
 
 const metrics = [
