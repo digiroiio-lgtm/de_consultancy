@@ -4,11 +4,12 @@ import { FaqSection } from "../../components/faq-section";
 import { SchemaScript } from "../../components/schema-script";
 import { FaqItem } from "../../lib/content";
 import { breadcrumbSchema, faqSchema } from "../../lib/schema";
+import { buildAlternates, localeRoutes } from "../../lib/i18n";
 
 export const metadata: Metadata = {
   title: "USA Market Entry Consulting",
   description: "How to export to USA from Turkey with a structured B2B distributor and compliance strategy.",
-  alternates: { canonical: "/export-consulting/usa-market-entry" },
+  alternates: buildAlternates(localeRoutes.exportUsaMarket),
 };
 
 const faqs: FaqItem[] = [

@@ -117,10 +117,10 @@ export default function TrExportConsultingPage() {
           İhracat hırsınızı disiplinli bir sisteme dönüştürüyoruz: pazar tezi, pazara giriş yolu ve ticari uygulama ritmi.
         </p>
         <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-          <Link href="/export-consulting/manufacturers" className="btn-outline" style={{ fontSize: 13 }}>
+          <Link href="/tr/ihracat-danismanligi/ureticiler" className="btn-outline" style={{ fontSize: 13 }}>
             Üretici İhracat Çerçevesi →
           </Link>
-          <Link href="/export-consulting/usa-market-entry" className="btn-outline" style={{ fontSize: 13 }}>
+          <Link href="/tr/ihracat-danismanligi/abd-pazar-girisi" className="btn-outline" style={{ fontSize: 13 }}>
             ABD Pazar Giriş Rehberi →
           </Link>
         </div>

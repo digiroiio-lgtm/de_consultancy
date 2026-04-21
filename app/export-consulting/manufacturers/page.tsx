@@ -4,11 +4,12 @@ import { FaqSection } from "../../components/faq-section";
 import { SchemaScript } from "../../components/schema-script";
 import { FaqItem } from "../../lib/content";
 import { breadcrumbSchema, faqSchema } from "../../lib/schema";
+import { buildAlternates, localeRoutes } from "../../lib/i18n";
 
 export const metadata: Metadata = {
   title: "Export Consulting for Manufacturers",
   description: "B2B export strategy and execution model for manufacturers scaling from local to global supply.",
-  alternates: { canonical: "/export-consulting/manufacturers" },
+  alternates: buildAlternates(localeRoutes.exportManufacturers),
 };
 
 const faqs: FaqItem[] = [
