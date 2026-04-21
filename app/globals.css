@@ -180,6 +180,24 @@ a { text-underline-offset: 3px; }
   transform: scale(1.02);
 }
 
+/* ─── LinkedIn icon button (leader cards) ───────────────────── */
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  transition: border-color 0.2s, color 0.2s;
+  text-decoration: none;
+}
+.linkedin-btn:hover {
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
 /* ─── Cards ─────────────────────────────────────────────────── */
 .card {
   background: var(--card-bg);

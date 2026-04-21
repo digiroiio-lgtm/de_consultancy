@@ -218,26 +218,7 @@ export default function TrLiderlikPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${leader.name} LinkedIn profili`}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: 32,
-                    height: 32,
-                    borderRadius: 6,
-                    border: "1px solid var(--border)",
-                    color: "var(--muted)",
-                    transition: "border-color 0.2s, color 0.2s",
-                    textDecoration: "none",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)";
-                    (e.currentTarget as HTMLElement).style.color = "var(--fg)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.borderColor = "var(--border)";
-                    (e.currentTarget as HTMLElement).style.color = "var(--muted)";
-                  }}
+                  className="linkedin-btn"
                 >
                   <svg
                     width="14"
