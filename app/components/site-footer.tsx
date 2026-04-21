@@ -36,9 +36,9 @@ const footerLinksByLocale: Record<Locale, FooterLinks> = {
       { label: "İletişim",   href: "/tr/iletisim" },
     ],
     "Hukuki": [
-      { label: "Gizlilik Politikası", href: "/legal/privacy-policy" },
-      { label: "Kullanım Şartları",   href: "/legal/terms-and-conditions" },
-      { label: "Çerez Politikası",    href: "/legal/cookie-policy" },
+      { label: "Gizlilik Politikası", href: "/tr/legal/privacy-policy" },
+      { label: "Kullanım Şartları",   href: "/tr/legal/terms-and-conditions" },
+      { label: "Çerez Politikası",    href: "/tr/legal/cookie-policy" },
     ],
   },
 };
