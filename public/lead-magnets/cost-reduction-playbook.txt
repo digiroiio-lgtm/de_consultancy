@@ -1,0 +1,6 @@
+Cost Reduction Playbook for Manufacturers
+- Spend baseline setup
+- Loss tree analysis
+- Procurement control system
+- Pricing governance
+- KPI dashboard implementation

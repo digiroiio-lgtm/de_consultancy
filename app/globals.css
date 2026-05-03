@@ -1,0 +1,370 @@
+@import "tailwindcss";
+
+/* ─── Design tokens (dark default) ─────────────────────────── */
+:root {
+  --bg:       #000000;
+  --fg:       #ffffff;
+  --accent:   #a100ff;
+  --accent2:  #c850ff;
+  --muted:    rgba(255,255,255,0.55);
+  --fg-dimmer:rgba(255,255,255,0.72);
+  --fg-weaker:rgba(255,255,255,0.47);
+  --fg-dim:   rgba(255,255,255,0.35);
+  --border:       rgba(255,255,255,0.12);
+  --card-bg:      rgba(255,255,255,0.04);
+  --section-dark: #050505;
+  --radius:   12px;
+  --header-bg-scrolled: rgba(0,0,0,0.92);
+  --scrollbar-track: #111;
+}
+
+/* ─── Light mode overrides ──────────────────────────────────── */
+[data-theme="light"] {
+  --bg:       #f5f5f7;
+  --fg:       #0a0a0a;
+  --accent:   #7700cc;
+  --accent2:  #9b20e0;
+  --muted:    rgba(0,0,0,0.58);
+  --fg-dimmer:rgba(0,0,0,0.75);
+  --fg-weaker:rgba(0,0,0,0.50);
+  --fg-dim:   rgba(0,0,0,0.42);
+  --border:       rgba(0,0,0,0.12);
+  --card-bg:      rgba(0,0,0,0.04);
+  --section-dark: #ebebef;
+  --header-bg-scrolled: rgba(245,245,247,0.94);
+  --scrollbar-track: #e8e8ec;
+}
+
+[data-theme="light"] body {
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Light mode: ensure section/card backgrounds aren't black-transparent on a light bg */
+[data-theme="light"] section,
+[data-theme="light"] main {
+  background: inherit;
+}
+
+/* Gradient text fix for light mode */
+[data-theme="light"] .gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 60%, #b020d8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Label (accent text) in light mode */
+[data-theme="light"] .label {
+  color: var(--accent);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+
+/* ─── Base ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-underline-offset: 3px; }
+
+/* ─── Custom scrollbar ──────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track, #111); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+/* ─── Typography scale ──────────────────────────────────────── */
+.h1 {
+  font-size: clamp(40px, 8vw, 96px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.h2 {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+.h3 {
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.body-lg { font-size: 18px; line-height: 1.7; }
+.body-md { font-size: 16px; line-height: 1.7; }
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ─── Accent gradient ───────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 60%, #ff6ef7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glow effects ──────────────────────────────────────────── */
+.glow-purple {
+  box-shadow: 0 0 24px rgba(161,0,255,0.5), 0 0 64px rgba(161,0,255,0.2);
+}
+.glow-text {
+  text-shadow: 0 0 40px rgba(161,0,255,0.7);
+}
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  padding: 14px 28px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.12) 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.btn-primary:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 32px rgba(161,0,255,0.6);
+  background: #b520ff;
+}
+.btn-primary:hover::after { opacity: 1; }
+.btn-primary:active { transform: scale(0.98); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--fg);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13px 28px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: rgba(161,0,255,0.08);
+  transform: scale(1.02);
+}
+
+/* ─── LinkedIn icon button (leader cards) ───────────────────── */
+.linkedin-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  transition: border-color 0.2s, color 0.2s;
+  text-decoration: none;
+}
+.linkedin-btn:hover {
+  border-color: var(--accent);
+  color: var(--fg);
+}
+
+/* ─── Cards ─────────────────────────────────────────────────── */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card:hover {
+  border-color: rgba(161,0,255,0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 24px rgba(161,0,255,0.15);
+}
+
+/* ─── Animated bg blob ──────────────────────────────────────── */
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  animation: blobPulse 8s ease-in-out infinite alternate;
+}
+@keyframes blobPulse {
+  0%   { transform: scale(1) translate(0, 0); opacity: 0.25; }
+  50%  { transform: scale(1.15) translate(30px, -20px); opacity: 0.35; }
+  100% { transform: scale(0.9) translate(-20px, 30px); opacity: 0.2; }
+}
+
+/* ─── Noise overlay ─────────────────────────────────────────── */
+.noise::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.04;
+}
+
+/* ─── Accordion ─────────────────────────────────────────────── */
+.accordion-content {
+  overflow: hidden;
+  transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Slider snap ───────────────────────────────────────────── */
+.slider-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 24px;
+}
+.slider-track::-webkit-scrollbar { display: none; }
+.slider-item {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* ─── Pill tags ─────────────────────────────────────────────── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+.pill:hover, .pill.active {
+  border-color: var(--accent);
+  color: var(--fg);
+  background: rgba(161,0,255,0.1);
+}
+
+/* ─── Section divider ───────────────────────────────────────── */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
+
+/* ─── Input dark ─────────────────────────────────────────────── */
+.input-dark {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--fg);
+  padding: 12px 16px;
+  font-size: 15px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.input-dark::placeholder { color: var(--fg-dim); }
+.input-dark:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(161,0,255,0.15);
+}
+
+/* ─── Range slider dark ─────────────────────────────────────── */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  outline: none;
+  width: 100%;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(161,0,255,0.6);
+  transition: transform 0.15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+}
+
+/* ─── Cursor glow (custom cursor) ───────────────────────────── */
+.cursor-glow {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(161,0,255,0.08) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+/* ─── Utility overrides ─────────────────────────────────────── */
+.max-w-site { max-width: 1280px; margin-inline: auto; }
+.section-pad { padding-block: clamp(80px, 10vw, 160px); padding-inline: clamp(24px, 5vw, 80px); }
+.section-pad-sm { padding-block: clamp(48px, 6vw, 80px); padding-inline: clamp(24px, 5vw, 80px); }
+
+/* ─── Responsive 2-col grid ─────────────────────────────────── */
+/* 2 columns on ≥ 769px, single column on mobile */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .two-col-grid { grid-template-columns: 1fr; }
+}
+
+/* Hero 2-col — same breakpoint, kept separate for naming clarity */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; }
+}

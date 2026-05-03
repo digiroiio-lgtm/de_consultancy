@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "whatWeDo": "Ne Yapıyoruz",
+    "whatWeThink": "Ne Düşünüyoruz",
+    "whoWeAre": "Biz Kimiz",
+    "bookCall": "Strateji Görüşmesi Planla"
+  },
+  "footer": {
+    "whatWeDo": "Ne Yapıyoruz",
+    "company": "Şirket",
+    "legal": "Hukuki",
+    "managementConsulting": "Yönetim Danışmanlığı",
+    "exportConsulting": "İhracat Danışmanlığı",
+    "industries": "Sektörler",
+    "about": "Hakkımızda",
+    "caseStudies": "Referanslar",
+    "contact": "İletişim",
+    "privacyPolicy": "Gizlilik Politikası",
+    "terms": "Kullanım Şartları",
+    "cookiePolicy": "Çerez Politikası",
+    "copyright": "Tüm hakları saklıdır.",
+    "tagline": "Ölçülebilir sonuç isteyen üreticiler için kurumsal yönetim ve ihracat danışmanlığı."
+  },
+  "cta": {
+    "bookCall": "Strateji Görüşmesi Planla →"
+  }
+}

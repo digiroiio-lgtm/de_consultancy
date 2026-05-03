@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "whatWeDo": "What We Do",
+    "whatWeThink": "What We Think",
+    "whoWeAre": "Who We Are",
+    "bookCall": "Book Strategy Call"
+  },
+  "footer": {
+    "whatWeDo": "What We Do",
+    "company": "Company",
+    "legal": "Legal",
+    "managementConsulting": "Management Consulting",
+    "exportConsulting": "Export Consulting",
+    "industries": "Industries",
+    "about": "About",
+    "caseStudies": "Case Studies",
+    "contact": "Contact",
+    "privacyPolicy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "All rights reserved.",
+    "tagline": "Enterprise management and export consulting for manufacturers who demand measurable results."
+  },
+  "cta": {
+    "bookCall": "Book Strategy Call →"
+  }
+}
