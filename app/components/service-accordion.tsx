@@ -88,6 +88,31 @@ const services = [
     ],
     stat: "3× faster decisions",
   },
+  {
+    id: "offmarket",
+    label: "Off-Market Sales Advisory",
+    tagline: "Private Asset Deal Execution",
+    href: "/off-market-advisory",
+    items: [
+      {
+        title: "Deal Structuring",
+        desc: "Positioning assets below replacement cost or with strategic upside to maximize buyer interest and negotiation leverage.",
+      },
+      {
+        title: "Private Buyer Access",
+        desc: "Direct access to qualified UHNW individuals, strategic buyers, and institutional networks across the US, EU, and GCC.",
+      },
+      {
+        title: "Risk-Mitigated Transactions",
+        desc: "Full coordination with legal, escrow, compliance, and cross-border transaction stakeholders.",
+      },
+      {
+        title: "End-to-End Execution",
+        desc: "From teaser and NDA flow to closing — managed with strict confidentiality and timeline discipline.",
+      },
+    ],
+    stat: "Faster deal cycles · Controlled buyer access · Premium positioning",
+  },
 ];
 
 function AccordionItem({
